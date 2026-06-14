@@ -2,7 +2,7 @@
   "players": [
     "Javi",
     "Nacho",
-    "Ignacio A",
+    "Nacho A",
     "Lucia",
     "Andrea/Luis",
     "Alvaro",
@@ -454,7 +454,6 @@
     "j1-01": {
       "Javi": "2",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "2",
       "Andrea/Luis": "1",
       "Alvaro": "X",
@@ -466,12 +465,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j1-02": {
       "Javi": "1",
       "Nacho": "X",
-      "Ignacio A": "X",
       "Lucia": "1",
       "Andrea/Luis": "X",
       "Alvaro": "X",
@@ -483,12 +482,12 @@
       "Dani": "2",
       "Marcelo": "X",
       "Bea/Alejandro": "X",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "X"
     },
     "j1-03": {
       "Javi": "2",
       "Nacho": "X",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -500,12 +499,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "X",
-      "Samuel": "X"
+      "Samuel": "X",
+      "Nacho A": "1"
     },
     "j1-04": {
       "Javi": "X",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "2",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -517,12 +516,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j1-05": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "X",
       "Andrea/Luis": "2",
       "Alvaro": "2",
@@ -534,12 +533,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j1-06": {
       "Javi": "1",
       "Nacho": "2",
-      "Ignacio A": "1",
       "Lucia": "X",
       "Andrea/Luis": "2",
       "Alvaro": "X",
@@ -551,12 +550,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "X"
+      "Samuel": "X",
+      "Nacho A": "1"
     },
     "j1-07": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "X",
@@ -568,12 +567,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j1-08": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "X",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "1",
@@ -585,12 +584,12 @@
       "Dani": "2",
       "Marcelo": "X",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "X"
     },
     "j1-09": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -602,12 +601,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j1-10": {
       "Javi": "X",
       "Nacho": "X",
-      "Ignacio A": "1",
       "Lucia": "2",
       "Andrea/Luis": "X",
       "Alvaro": "2",
@@ -619,12 +618,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "X"
+      "Samuel": "X",
+      "Nacho A": "1"
     },
     "j1-11": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "1",
       "Lucia": "X",
       "Andrea/Luis": "2",
       "Alvaro": "2",
@@ -636,12 +635,12 @@
       "Dani": "X",
       "Marcelo": "X",
       "Bea/Alejandro": "X",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j1-12": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "X",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -653,12 +652,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "X",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j1-13": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -670,12 +669,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j1-14": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "X",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -687,12 +686,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j1-15": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "1",
@@ -704,12 +703,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j1-16": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "X",
       "Andrea/Luis": "1",
       "Alvaro": "X",
@@ -721,12 +720,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "1"
     },
     "j1-17": {
       "Javi": "1",
       "Nacho": "X",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -738,12 +737,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j1-18": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "1",
@@ -755,12 +754,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j1-19": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -772,12 +771,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j1-20": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "X",
       "Andrea/Luis": "1",
       "Alvaro": "X",
@@ -789,12 +788,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j1-21": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -806,12 +805,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j1-22": {
       "Javi": "X",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "X",
       "Andrea/Luis": "X",
       "Alvaro": "1",
@@ -823,12 +822,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "X",
-      "Samuel": "X"
+      "Samuel": "X",
+      "Nacho A": "1"
     },
     "j1-23": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "X",
       "Lucia": "1",
       "Andrea/Luis": "X",
       "Alvaro": "X",
@@ -840,12 +839,12 @@
       "Dani": "1",
       "Marcelo": "X",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "X"
     },
     "j1-24": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "X",
@@ -857,12 +856,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j2-01": {
       "Javi": "X",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "2",
       "Andrea/Luis": "X",
       "Alvaro": "2",
@@ -874,12 +873,12 @@
       "Dani": "2",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j2-02": {
       "Javi": "2",
       "Nacho": "X",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "2",
       "Alvaro": "X",
@@ -891,12 +890,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "X",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j2-03": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "X",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -908,12 +907,12 @@
       "Dani": "X",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j2-04": {
       "Javi": "2",
       "Nacho": "X",
-      "Ignacio A": "X",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "X",
@@ -925,12 +924,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "X",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "X"
     },
     "j2-05": {
       "Javi": "1",
       "Nacho": "X",
-      "Ignacio A": "1",
       "Lucia": "2",
       "Andrea/Luis": "X",
       "Alvaro": "1",
@@ -942,12 +941,12 @@
       "Dani": "1",
       "Marcelo": "2",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j2-06": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "X",
@@ -959,12 +958,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j2-07": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -976,12 +975,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j2-08": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "X",
@@ -993,12 +992,12 @@
       "Dani": "X",
       "Marcelo": "2",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j2-09": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "2",
       "Andrea/Luis": "1",
       "Alvaro": "2",
@@ -1010,12 +1009,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "X"
+      "Samuel": "X",
+      "Nacho A": "1"
     },
     "j2-10": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -1027,12 +1026,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j2-11": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "X",
@@ -1044,12 +1043,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "X"
+      "Samuel": "X",
+      "Nacho A": "1"
     },
     "j2-12": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "2",
@@ -1061,12 +1060,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j2-13": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -1078,12 +1077,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "X"
+      "Samuel": "X",
+      "Nacho A": "1"
     },
     "j2-14": {
       "Javi": "1",
       "Nacho": "X",
-      "Ignacio A": "1",
       "Lucia": "X",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -1095,12 +1094,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j2-15": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "X",
@@ -1112,12 +1111,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j2-16": {
       "Javi": "2",
       "Nacho": "X",
-      "Ignacio A": "X",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "2",
@@ -1129,12 +1128,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "2",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "X"
     },
     "j2-17": {
       "Javi": "1",
       "Nacho": "X",
-      "Ignacio A": "X",
       "Lucia": "1",
       "Andrea/Luis": "2",
       "Alvaro": "2",
@@ -1146,12 +1145,12 @@
       "Dani": "X",
       "Marcelo": "1",
       "Bea/Alejandro": "X",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "X"
     },
     "j2-18": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -1163,12 +1162,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j2-19": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -1180,12 +1179,12 @@
       "Dani": "1",
       "Marcelo": "X",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j2-20": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "X",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "X",
@@ -1197,12 +1196,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "2",
-      "Samuel": "X"
+      "Samuel": "X",
+      "Nacho A": "X"
     },
     "j2-21": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -1214,12 +1213,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j2-22": {
       "Javi": "1",
       "Nacho": "X",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -1231,12 +1230,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j2-23": {
       "Javi": "1",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "2",
       "Andrea/Luis": "1",
       "Alvaro": "X",
@@ -1248,12 +1247,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j2-24": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -1265,12 +1264,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j3-01": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "X",
       "Lucia": "X",
       "Andrea/Luis": "1",
       "Alvaro": "2",
@@ -1282,12 +1281,12 @@
       "Dani": "1",
       "Marcelo": "X",
       "Bea/Alejandro": "X",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "X"
     },
     "j3-02": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "2",
       "Andrea/Luis": "1",
       "Alvaro": "2",
@@ -1299,12 +1298,12 @@
       "Dani": "2",
       "Marcelo": "X",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j3-03": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -1316,12 +1315,12 @@
       "Dani": "1",
       "Marcelo": "2",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j3-04": {
       "Javi": "X",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "X",
       "Andrea/Luis": "2",
       "Alvaro": "2",
@@ -1333,12 +1332,12 @@
       "Dani": "2",
       "Marcelo": "1",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j3-05": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "X",
       "Andrea/Luis": "1",
       "Alvaro": "2",
@@ -1350,12 +1349,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "2",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "2"
     },
     "j3-06": {
       "Javi": "2",
       "Nacho": "X",
-      "Ignacio A": "X",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "1",
@@ -1367,12 +1366,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "X"
     },
     "j3-07": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "X",
@@ -1384,12 +1383,12 @@
       "Dani": "2",
       "Marcelo": "X",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j3-08": {
       "Javi": "X",
       "Nacho": "X",
-      "Ignacio A": "2",
       "Lucia": "X",
       "Andrea/Luis": "2",
       "Alvaro": "2",
@@ -1401,12 +1400,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j3-09": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "1",
       "Andrea/Luis": "2",
       "Alvaro": "1",
@@ -1418,12 +1417,12 @@
       "Dani": "2",
       "Marcelo": "X",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j3-10": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "X",
       "Lucia": "X",
       "Andrea/Luis": "1",
       "Alvaro": "X",
@@ -1435,12 +1434,12 @@
       "Dani": "1",
       "Marcelo": "2",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "X"
     },
     "j3-11": {
       "Javi": "X",
       "Nacho": "X",
-      "Ignacio A": "X",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "2",
@@ -1452,12 +1451,12 @@
       "Dani": "X",
       "Marcelo": "X",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "X"
     },
     "j3-12": {
       "Javi": "1",
       "Nacho": "X",
-      "Ignacio A": "X",
       "Lucia": "X",
       "Andrea/Luis": "2",
       "Alvaro": "2",
@@ -1469,12 +1468,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "X"
     },
     "j3-13": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "2",
@@ -1486,12 +1485,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "X",
-      "Samuel": "X"
+      "Samuel": "X",
+      "Nacho A": "2"
     },
     "j3-14": {
       "Javi": "1",
       "Nacho": "1",
-      "Ignacio A": "1",
       "Lucia": "X",
       "Andrea/Luis": "1",
       "Alvaro": "2",
@@ -1503,12 +1502,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j3-15": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "X",
       "Lucia": "2",
       "Andrea/Luis": "1",
       "Alvaro": "2",
@@ -1520,12 +1519,12 @@
       "Dani": "2",
       "Marcelo": "X",
       "Bea/Alejandro": "1",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "X"
     },
     "j3-16": {
       "Javi": "X",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "X",
       "Andrea/Luis": "2",
       "Alvaro": "2",
@@ -1537,12 +1536,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "X",
-      "Samuel": "X"
+      "Samuel": "X",
+      "Nacho A": "2"
     },
     "j3-17": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "2",
@@ -1554,12 +1553,12 @@
       "Dani": "2",
       "Marcelo": "X",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j3-18": {
       "Javi": "2",
       "Nacho": "X",
-      "Ignacio A": "X",
       "Lucia": "1",
       "Andrea/Luis": "X",
       "Alvaro": "X",
@@ -1571,12 +1570,12 @@
       "Dani": "1",
       "Marcelo": "2",
       "Bea/Alejandro": "X",
-      "Samuel": "X"
+      "Samuel": "X",
+      "Nacho A": "X"
     },
     "j3-19": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "2",
@@ -1588,12 +1587,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j3-20": {
       "Javi": "1",
       "Nacho": "X",
-      "Ignacio A": "1",
       "Lucia": "X",
       "Andrea/Luis": "1",
       "Alvaro": "1",
@@ -1605,12 +1604,12 @@
       "Dani": "1",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "1"
     },
     "j3-21": {
       "Javi": "1",
       "Nacho": "X",
-      "Ignacio A": "2",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "2",
@@ -1622,12 +1621,12 @@
       "Dani": "X",
       "Marcelo": "X",
       "Bea/Alejandro": "1",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j3-22": {
       "Javi": "1",
       "Nacho": "2",
-      "Ignacio A": "X",
       "Lucia": "1",
       "Andrea/Luis": "1",
       "Alvaro": "X",
@@ -1639,12 +1638,12 @@
       "Dani": "X",
       "Marcelo": "1",
       "Bea/Alejandro": "1",
-      "Samuel": "1"
+      "Samuel": "1",
+      "Nacho A": "X"
     },
     "j3-23": {
       "Javi": "X",
       "Nacho": "1",
-      "Ignacio A": "2",
       "Lucia": "1",
       "Andrea/Luis": "2",
       "Alvaro": "X",
@@ -1656,12 +1655,12 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "1",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     },
     "j3-24": {
       "Javi": "2",
       "Nacho": "2",
-      "Ignacio A": "2",
       "Lucia": "2",
       "Andrea/Luis": "2",
       "Alvaro": "X",
@@ -1673,7 +1672,8 @@
       "Dani": "2",
       "Marcelo": "2",
       "Bea/Alejandro": "2",
-      "Samuel": "2"
+      "Samuel": "2",
+      "Nacho A": "2"
     }
   }
 }
