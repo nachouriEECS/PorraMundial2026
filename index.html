@@ -84,8 +84,8 @@
   .lg{width:16px;height:16px;font-size:10px}
   .ic.correct{background:var(--green);color:#062a16}
   .ic.wrong{background:var(--red);color:#3a0808}
-  .ic.pending{background:transparent;border:1.5px solid var(--grey);color:var(--grey)}
-  .ic.nopick{background:transparent;border:1.5px dashed #3a443d;color:#3a443d}
+  .ic.pending{background:rgba(255,255,255,.04);border:1.5px solid var(--grey);color:var(--ink-dim)}
+  .ic.nopick{background:transparent;border:1.5px dashed #3a443d;color:#566159}
 
   /* ---------- Leaderboard ---------- */
   ol.board{list-style:none;margin:8px 0 30px;padding:0;display:flex;flex-direction:column;gap:9px}
@@ -116,8 +116,8 @@
   .strip{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:3px;margin-top:4px;padding-top:10px;border-top:1px dashed var(--line)}
   .md{display:flex;gap:3px;flex-wrap:wrap;align-items:center}
   .md + .md{margin-left:5px;padding-left:8px;border-left:1px solid var(--line)}
-  .cell{width:15px;height:15px;font-size:9px;cursor:default}
-  .cell.last{outline:2px solid var(--gold);outline-offset:1px;width:17px;height:17px;font-size:10px;box-shadow:0 0 10px rgba(246,201,69,.5)}
+  .cell{width:16px;height:16px;font-size:10px;font-weight:700;cursor:default}
+  .cell.last{outline:2px solid var(--gold);outline-offset:1px;width:18px;height:18px;font-size:11px;box-shadow:0 0 10px rgba(246,201,69,.5)}
   .cell.last.correct{outline-color:#bff5d8}
   .cell.last.wrong{outline-color:#ffc9c9}
 
@@ -137,17 +137,19 @@
     <div class="substrip">
       <span class="chip" id="progress">— / 72 partidos</span>
       <span class="chip" id="lastResult" hidden></span>
+      <span class="chip" id="nextMatch" hidden></span>
       <span class="chip" id="updated">Actualizando…</span>
     </div>
   </header>
 
   <div class="legend">
-    <span><i class="ic lg correct">✓</i> Acertado</span>
-    <span><i class="ic lg wrong">✕</i> Fallado</span>
-    <span><i class="ic lg pending">·</i> Sin jugar</span>
+    <span><i class="ic lg correct">1</i> Acertado</span>
+    <span><i class="ic lg wrong">2</i> Fallado</span>
+    <span><i class="ic lg pending">X</i> Sin jugar</span>
     <span><i class="ic lg nopick">–</i> Sin pronóstico</span>
     <span style="color:var(--gold)">◎ Último partido</span>
   </div>
+  <div class="legend" style="margin-top:0">El número es el pronóstico (1 local · X empate · 2 visitante), en verde si acertó y rojo si falló.</div>
 
   <ol class="board" id="board"><li class="empty">Cargando clasificación…</li></ol>
 
@@ -159,7 +161,6 @@
 </div>
 
 <script>
-const OUTCOME_GLYPH = {correct:"✓", wrong:"✕", pending:"·", nopick:"–"};
 let PRED=null, CODES=null;
 
 async function getJSON(url){
@@ -177,11 +178,23 @@ function relTime(iso){
   return d.toLocaleDateString("es-ES",{day:"numeric",month:"short"});
 }
 
+function kickoff(iso){
+  if(!iso) return "";
+  const d = new Date(iso), now = new Date();
+  const sameDay = d.toDateString()===now.toDateString();
+  const t = d.toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"});
+  if(sameDay) return ` <span class="sc">· hoy ${t}</span>`;
+  const day = d.toLocaleDateString("es-ES",{weekday:"short",day:"numeric",month:"short"});
+  return ` <span class="sc">· ${day} ${t}</span>`;
+}
+
 function cellStatus(pick, outcome){
-  if(outcome==null) return "pending";   // match not finished
   if(pick==null)    return "nopick";     // player left it blank
+  if(outcome==null) return "pending";    // pick made, match not finished yet
   return pick===outcome ? "correct" : "wrong";
 }
+// What shows inside each circle: the player's own pick (1 / X / 2), or a dash.
+function cellLabel(c){ return c.status==="nopick" ? "–" : c.pick; }
 
 function computeStandings(results){
   const byPlayer = {};
@@ -238,6 +251,15 @@ function render(results){
     lr.innerHTML = `Último: <b class="lastgame">${flag(m.team1)} ${m.team1} <span class="sc">${sc}</span> ${m.team2} ${flag(m.team2)}</b>`;
   } else { lr.hidden=true; }
 
+  // Próximo (next match) chip
+  const nx = document.getElementById("nextMatch");
+  const nextId = results.nextMatchId;
+  if(nextId){
+    const m = PRED.matches.find(x=>x.id===nextId), r = results.matches[nextId]||{};
+    nx.hidden=false;
+    nx.innerHTML = `Próximo: <b class="lastgame">${flag(m.team1)} ${m.team1} vs ${m.team2} ${flag(m.team2)}</b>${kickoff(r.utcDate)}`;
+  } else { nx.hidden=true; }
+
   const standings = computeStandings(results);
   const board = document.getElementById("board");
   board.innerHTML = "";
@@ -259,7 +281,7 @@ function render(results){
     for(const c of pl.cells){
       if(c.matchday!==curMd){ if(curMd!==null) strip+="</div>"; strip+=`<div class="md">`; curMd=c.matchday; }
       const isLast = c.mid===lastId;
-      strip += `<i class="ic cell ${c.status}${isLast?" last":""}" title="${title(c).replace(/"/g,'&quot;')}">${OUTCOME_GLYPH[c.status]}</i>`;
+      strip += `<i class="ic cell ${c.status}${isLast?" last":""}" title="${title(c).replace(/"/g,'&quot;')}">${cellLabel(c)}</i>`;
     }
     strip += "</div>";
 

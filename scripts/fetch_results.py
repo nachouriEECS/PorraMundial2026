@@ -132,15 +132,15 @@ def main():
                 g1, g2, win_is_t1 = fx["homeGoals"], fx["awayGoals"], "HOME_TEAM"
             else:
                 g1, g2, win_is_t1 = fx["awayGoals"], fx["homeGoals"], "AWAY_TEAM"
-            if fx["status"] == "FINISHED" and fx["winner"]:
-                if fx["winner"] == "DRAW":
-                    entry["outcome"] = "X"
-                elif fx["winner"] == win_is_t1:
-                    entry["outcome"] = "1"
-                else:
-                    entry["outcome"] = "2"
+            if fx["status"] == "FINISHED":
+                # Prefer the goals (source of truth); fall back to the winner field.
+                # The free tier sometimes marks a match FINISHED with a null winner.
                 if g1 is not None and g2 is not None:
+                    entry["outcome"] = "1" if g1 > g2 else "2" if g2 > g1 else "X"
                     entry["score"] = f"{g1}-{g2}"
+                elif fx["winner"]:
+                    entry["outcome"] = ("X" if fx["winner"] == "DRAW"
+                                        else "1" if fx["winner"] == win_is_t1 else "2")
         else:
             unmatched.append(mid)
 
@@ -160,9 +160,17 @@ def main():
         finished.sort()
         last_finished = finished[-1][1]
 
+    # Next match: earliest not-yet-decided fixture by kickoff time.
+    upcoming = sorted(
+        (e["utcDate"], mid) for mid, e in results.items()
+        if e["outcome"] is None and e["status"] != "FINISHED" and e["utcDate"]
+    )
+    next_match = upcoming[0][1] if upcoming else None
+
     out = {
         "lastUpdated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "lastFinishedId": last_finished,
+        "nextMatchId": next_match,
         "matches": results,
     }
 
