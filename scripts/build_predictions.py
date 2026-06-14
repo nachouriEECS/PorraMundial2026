@@ -58,7 +58,11 @@ def read_sheet(xlsx_path):
         t = c.attrib.get("t")
         v = c.find(NS + "v")
         val = None
-        if v is not None:
+        if t == "inlineStr":
+            is_ = c.find(NS + "is")
+            if is_ is not None:
+                val = "".join(tt.text or "" for tt in is_.iter(NS + "t"))
+        elif v is not None:
             val = v.text
             if t == "s":
                 val = shared[int(val)]
