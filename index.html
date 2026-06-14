@@ -42,7 +42,11 @@
     min-height:100vh;
     padding:0 14px env(safe-area-inset-bottom);
   }
-  .wrap{max-width:760px;margin:0 auto}
+  .wrap{max-width:1140px;margin:0 auto}
+
+  /* two-column layout: leaderboard + fixtures sidebar */
+  .layout{display:grid;grid-template-columns:1fr;gap:18px;align-items:start;margin-top:8px}
+  @media(min-width:980px){.layout{grid-template-columns:minmax(0,1fr) 360px}}
 
   /* ---------- Header ---------- */
   header{
@@ -88,7 +92,24 @@
   .ic.nopick{background:transparent;border:1.5px dashed #3a443d;color:#566159}
 
   /* ---------- Leaderboard ---------- */
-  ol.board{list-style:none;margin:8px 0 30px;padding:0;display:flex;flex-direction:column;gap:9px}
+  ol.board{list-style:none;margin:0 0 10px;padding:0;display:flex;flex-direction:column;gap:9px}
+
+  /* ---------- Fixtures sidebar ---------- */
+  .fixtures{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+  @media(min-width:980px){.fixtures{position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto}}
+  .fx-title{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:.5px;text-transform:uppercase;padding:14px 16px 4px}
+  .fx-sub{font-size:12px;color:var(--ink-faint);padding:0 16px 10px}
+  .fx-md{font-family:'Spline Sans Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);background:var(--bg-2);padding:7px 16px;border-top:1px solid var(--line);position:sticky;top:0;z-index:1}
+  .fx{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 16px;border-top:1px solid var(--line);font-size:13.5px}
+  .fx-teams{display:flex;align-items:center;gap:7px;min-width:0;flex-wrap:wrap}
+  .fx .t{white-space:nowrap}
+  .fx .fl{font-size:14px;margin-right:1px}
+  .fx .vs{color:var(--ink-faint);font-size:11px;font-family:'Spline Sans Mono',monospace}
+  .fx-status{flex:none;font-family:'Spline Sans Mono',monospace;font-weight:600;font-size:12px;color:var(--ink-faint);white-space:nowrap}
+  .score-badge{background:rgba(33,208,122,.14);border:1px solid rgba(33,208,122,.4);color:#79e8ab;border-radius:6px;padding:2px 7px}
+  .fx.played{background:rgba(33,208,122,.05)}
+  .fx.next{background:rgba(246,201,69,.08);box-shadow:inset 3px 0 0 var(--gold)}
+  .fx.next .fx-status{color:var(--gold)}
   .row{
     position:relative;display:grid;grid-template-columns:42px 1fr auto;align-items:center;
     gap:12px;padding:12px 14px;border-radius:16px;
@@ -151,7 +172,10 @@
   </div>
   <div class="legend" style="margin-top:0">El número es el pronóstico (1 local · X empate · 2 visitante), en verde si acertó y rojo si falló.</div>
 
-  <ol class="board" id="board"><li class="empty">Cargando clasificación…</li></ol>
+  <div class="layout">
+    <ol class="board" id="board"><li class="empty">Cargando clasificación…</li></ol>
+    <aside class="fixtures" id="fixtures"></aside>
+  </div>
 
   <footer>
     Porra del Mundial 2026 · 1 punto por acierto en la fase de grupos.<br>
@@ -228,6 +252,46 @@ function computeStandings(results){
 }
 
 function flag(code){ return CODES[code]?.flag || ""; }
+function cname(code){ return CODES[code]?.name || code; }
+
+function renderFixtures(results){
+  const el = document.getElementById("fixtures");
+  const played = PRED.matches.filter(m => (results.matches[m.id]||{}).outcome!=null).length;
+  let html = `<div class="fx-title">Calendario</div><div class="fx-sub">${played}/72 jugados · fase de grupos</div>`;
+  let curMd = null;
+  for(const m of PRED.matches){
+    if(m.matchday!==curMd){ curMd=m.matchday; html += `<div class="fx-md">Jornada ${curMd}</div>`; }
+    const r = results.matches[m.id] || {};
+    const isNext = results.nextMatchId===m.id;
+    const playedM = r.outcome!=null;
+    let status;
+    if(playedM){
+      const sc = r.score ? r.score.replace("-","–") : "✓";
+      status = `<span class="score-badge">${sc}</span>`;
+    } else if(isNext){
+      status = `Próximo${kickoff(r.utcDate)?'':''}`;
+    } else {
+      status = shortWhen(r.utcDate);
+    }
+    html += `<div class="fx${playedM?' played':''}${isNext?' next':''}">
+      <div class="fx-teams">
+        <span class="t"><span class="fl">${flag(m.team1)}</span>${cname(m.team1)}</span>
+        <span class="vs">vs</span>
+        <span class="t"><span class="fl">${flag(m.team2)}</span>${cname(m.team2)}</span>
+      </div>
+      <div class="fx-status">${status}</div>
+    </div>`;
+  }
+  el.innerHTML = html;
+}
+
+function shortWhen(iso){
+  if(!iso) return "";
+  const d = new Date(iso), now = new Date();
+  const t = d.toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"});
+  if(d.toDateString()===now.toDateString()) return "hoy "+t;
+  return d.toLocaleDateString("es-ES",{day:"numeric",month:"short"})+" "+t;
+}
 function title(c){
   const f1=flag(c.team1), f2=flag(c.team2);
   const sc = c.score ? c.score.replace("-","–") : (c.outcome==null?"sin jugar":"");
@@ -259,6 +323,8 @@ function render(results){
     nx.hidden=false;
     nx.innerHTML = `Próximo: <b class="lastgame">${flag(m.team1)} ${m.team1} vs ${m.team2} ${flag(m.team2)}</b>${kickoff(r.utcDate)}`;
   } else { nx.hidden=true; }
+
+  renderFixtures(results);
 
   const standings = computeStandings(results);
   const board = document.getElementById("board");
