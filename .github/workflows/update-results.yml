@@ -1,0 +1,45 @@
+name: Update results
+
+# Fetches real World Cup results and commits data/results.json when it changes.
+# Runs on a schedule, and can be triggered by hand from the Actions tab.
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # every 30 minutes (UTC)
+  workflow_dispatch:          # manual "Run workflow" button
+
+# Allow the job to push the updated data file back to the repo.
+permissions:
+  contents: write
+
+concurrency:
+  group: update-results
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch results
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+        run: python3 scripts/fetch_results.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "porra-bot"
+          git config user.email "porra-bot@users.noreply.github.com"
+          if ! git diff --quiet -- data/results.json; then
+            git add data/results.json
+            git commit -m "Update results ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+            git push
+          else
+            echo "No changes to results.json."
+          fi

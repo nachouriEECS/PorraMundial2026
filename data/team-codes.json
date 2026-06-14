@@ -1,0 +1,361 @@
+{
+  "MEX": {
+    "name": "Mexico",
+    "flag": "🇲🇽",
+    "aliases": [
+      "mexico"
+    ]
+  },
+  "RSA": {
+    "name": "South Africa",
+    "flag": "🇿🇦",
+    "aliases": [
+      "south africa"
+    ]
+  },
+  "KOR": {
+    "name": "South Korea",
+    "flag": "🇰🇷",
+    "aliases": [
+      "korea",
+      "korea republic",
+      "south korea"
+    ]
+  },
+  "CZE": {
+    "name": "Czechia",
+    "flag": "🇨🇿",
+    "aliases": [
+      "czech republic",
+      "czechia"
+    ]
+  },
+  "CAN": {
+    "name": "Canada",
+    "flag": "🇨🇦",
+    "aliases": [
+      "canada"
+    ]
+  },
+  "BOS": {
+    "name": "Bosnia & Herzegovina",
+    "flag": "🇧🇦",
+    "aliases": [
+      "bosnia",
+      "bosnia & herzegovina",
+      "bosnia and herzegovina",
+      "bosnia-herzegovina"
+    ]
+  },
+  "USA": {
+    "name": "United States",
+    "flag": "🇺🇸",
+    "aliases": [
+      "united states",
+      "united states of america",
+      "usa"
+    ]
+  },
+  "PAR": {
+    "name": "Paraguay",
+    "flag": "🇵🇾",
+    "aliases": [
+      "paraguay"
+    ]
+  },
+  "QAT": {
+    "name": "Qatar",
+    "flag": "🇶🇦",
+    "aliases": [
+      "qatar"
+    ]
+  },
+  "SUI": {
+    "name": "Switzerland",
+    "flag": "🇨🇭",
+    "aliases": [
+      "switzerland"
+    ]
+  },
+  "BRA": {
+    "name": "Brazil",
+    "flag": "🇧🇷",
+    "aliases": [
+      "brazil"
+    ]
+  },
+  "MAR": {
+    "name": "Morocco",
+    "flag": "🇲🇦",
+    "aliases": [
+      "morocco"
+    ]
+  },
+  "HAI": {
+    "name": "Haiti",
+    "flag": "🇭🇹",
+    "aliases": [
+      "haiti"
+    ]
+  },
+  "ESC": {
+    "name": "Scotland",
+    "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    "aliases": [
+      "scotland"
+    ]
+  },
+  "AUS": {
+    "name": "Australia",
+    "flag": "🇦🇺",
+    "aliases": [
+      "australia"
+    ]
+  },
+  "TUR": {
+    "name": "Turkey",
+    "flag": "🇹🇷",
+    "aliases": [
+      "turkey",
+      "turkiye",
+      "türkiye"
+    ]
+  },
+  "GER": {
+    "name": "Germany",
+    "flag": "🇩🇪",
+    "aliases": [
+      "germany"
+    ]
+  },
+  "CUR": {
+    "name": "Curacao",
+    "flag": "🇨🇼",
+    "aliases": [
+      "curacao",
+      "curaçao"
+    ]
+  },
+  "NED": {
+    "name": "Netherlands",
+    "flag": "🇳🇱",
+    "aliases": [
+      "holland",
+      "netherlands"
+    ]
+  },
+  "JPN": {
+    "name": "Japan",
+    "flag": "🇯🇵",
+    "aliases": [
+      "japan"
+    ]
+  },
+  "CIV": {
+    "name": "Cote d'Ivoire",
+    "flag": "🇨🇮",
+    "aliases": [
+      "cote d'ivoire",
+      "côte d'ivoire",
+      "ivory coast"
+    ]
+  },
+  "ECU": {
+    "name": "Ecuador",
+    "flag": "🇪🇨",
+    "aliases": [
+      "ecuador"
+    ]
+  },
+  "SWE": {
+    "name": "Sweden",
+    "flag": "🇸🇪",
+    "aliases": [
+      "sweden"
+    ]
+  },
+  "TUN": {
+    "name": "Tunisia",
+    "flag": "🇹🇳",
+    "aliases": [
+      "tunisia"
+    ]
+  },
+  "ESP": {
+    "name": "Spain",
+    "flag": "🇪🇸",
+    "aliases": [
+      "spain"
+    ]
+  },
+  "CPV": {
+    "name": "Cape Verde",
+    "flag": "🇨🇻",
+    "aliases": [
+      "cabo verde",
+      "cape verde"
+    ]
+  },
+  "BEL": {
+    "name": "Belgium",
+    "flag": "🇧🇪",
+    "aliases": [
+      "belgium"
+    ]
+  },
+  "EGY": {
+    "name": "Egypt",
+    "flag": "🇪🇬",
+    "aliases": [
+      "egypt"
+    ]
+  },
+  "KSA": {
+    "name": "Saudi Arabia",
+    "flag": "🇸🇦",
+    "aliases": [
+      "saudi arabia"
+    ]
+  },
+  "URU": {
+    "name": "Uruguay",
+    "flag": "🇺🇾",
+    "aliases": [
+      "uruguay"
+    ]
+  },
+  "IRN": {
+    "name": "Iran",
+    "flag": "🇮🇷",
+    "aliases": [
+      "ir iran",
+      "iran",
+      "iran (islamic republic of)",
+      "islamic republic of iran"
+    ]
+  },
+  "NZL": {
+    "name": "New Zealand",
+    "flag": "🇳🇿",
+    "aliases": [
+      "new zealand"
+    ]
+  },
+  "FRA": {
+    "name": "France",
+    "flag": "🇫🇷",
+    "aliases": [
+      "france"
+    ]
+  },
+  "SEN": {
+    "name": "Senegal",
+    "flag": "🇸🇳",
+    "aliases": [
+      "senegal"
+    ]
+  },
+  "IRQ": {
+    "name": "Iraq",
+    "flag": "🇮🇶",
+    "aliases": [
+      "iraq"
+    ]
+  },
+  "NOR": {
+    "name": "Norway",
+    "flag": "🇳🇴",
+    "aliases": [
+      "norway"
+    ]
+  },
+  "ARG": {
+    "name": "Argentina",
+    "flag": "🇦🇷",
+    "aliases": [
+      "argentina"
+    ]
+  },
+  "ALG": {
+    "name": "Algeria",
+    "flag": "🇩🇿",
+    "aliases": [
+      "algeria"
+    ]
+  },
+  "AUT": {
+    "name": "Austria",
+    "flag": "🇦🇹",
+    "aliases": [
+      "austria"
+    ]
+  },
+  "JOR": {
+    "name": "Jordan",
+    "flag": "🇯🇴",
+    "aliases": [
+      "jordan"
+    ]
+  },
+  "POR": {
+    "name": "Portugal",
+    "flag": "🇵🇹",
+    "aliases": [
+      "portugal"
+    ]
+  },
+  "CON": {
+    "name": "Congo DR",
+    "flag": "🇨🇩",
+    "aliases": [
+      "congo",
+      "congo dr",
+      "congo republic",
+      "democratic republic of the congo",
+      "dr congo",
+      "republic of the congo"
+    ]
+  },
+  "ENG": {
+    "name": "England",
+    "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "aliases": [
+      "england"
+    ]
+  },
+  "CRO": {
+    "name": "Croatia",
+    "flag": "🇭🇷",
+    "aliases": [
+      "croatia"
+    ]
+  },
+  "GHA": {
+    "name": "Ghana",
+    "flag": "🇬🇭",
+    "aliases": [
+      "ghana"
+    ]
+  },
+  "PAN": {
+    "name": "Panama",
+    "flag": "🇵🇦",
+    "aliases": [
+      "panama"
+    ]
+  },
+  "UZB": {
+    "name": "Uzbekistan",
+    "flag": "🇺🇿",
+    "aliases": [
+      "uzbekistan"
+    ]
+  },
+  "COL": {
+    "name": "Colombia",
+    "flag": "🇨🇴",
+    "aliases": [
+      "colombia"
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "_comment": "Manual safety net. Map a match id (e.g. \"j1-01\") to \"1\", \"X\" or \"2\" to hard-set its result, overriding whatever the API says. Use this if the API can't resolve a fixture or returns a wrong/late result. Remove an entry to hand control back to the API.",
+  "results": {}
+}

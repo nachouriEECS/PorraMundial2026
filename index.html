@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Porra Mundial 2026 · Clasificación en directo</title>
+<meta name="description" content="Clasificación en directo de la porra del Mundial 2026">
+<meta name="theme-color" content="#0a0e0c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Spline+Sans+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e0c;
+    --bg-2:#0f1512;
+    --panel:#141b17;
+    --panel-2:#1a231e;
+    --line:#26312b;
+    --ink:#eef3ef;
+    --ink-dim:#9fb0a6;
+    --ink-faint:#5f6f66;
+    --green:#21d07a;
+    --green-deep:#0e7a45;
+    --red:#ec4a4a;
+    --grey:#566159;
+    --gold:#f6c945;
+    --gold-deep:#8a6a10;
+    --accent:#21d07a;
+    --shadow:0 10px 30px -12px rgba(0,0,0,.7);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -10%, rgba(33,208,122,.10), transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, rgba(246,201,69,.06), transparent 55%),
+      repeating-linear-gradient(180deg, transparent 0 38px, rgba(255,255,255,.012) 38px 76px),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Archivo',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    padding:0 14px env(safe-area-inset-bottom);
+  }
+  .wrap{max-width:760px;margin:0 auto}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:20;
+    margin:0 -14px 0;
+    padding:16px 16px 14px;
+    background:linear-gradient(180deg, rgba(10,14,12,.96), rgba(10,14,12,.82));
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .titlerow{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+  h1{
+    font-family:'Anton',sans-serif;font-weight:400;
+    font-size:clamp(26px,7vw,42px);line-height:.92;letter-spacing:.5px;
+    margin:0;text-transform:uppercase;
+  }
+  h1 .em{color:var(--green)}
+  .badge{
+    font-family:'Spline Sans Mono',monospace;font-weight:600;
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--bg);background:var(--green);padding:5px 9px;border-radius:999px;white-space:nowrap;
+  }
+  .substrip{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .chip{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--panel);border:1px solid var(--line);border-radius:999px;
+    padding:6px 12px;font-size:13px;color:var(--ink-dim);
+  }
+  .chip b{color:var(--ink);font-weight:600}
+  .chip .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(33,208,122,.6);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(33,208,122,.55)}70%{box-shadow:0 0 0 7px rgba(33,208,122,0)}100%{box-shadow:0 0 0 0 rgba(33,208,122,0)}}
+  .lastgame{font-family:'Spline Sans Mono',monospace;font-weight:600}
+  .lastgame .sc{color:var(--gold)}
+
+  /* ---------- Legend ---------- */
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:16px 2px 6px;font-size:12px;color:var(--ink-faint)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .ic{display:inline-grid;place-items:center;border-radius:50%;font-weight:700;line-height:1;flex:none}
+  .lg{width:16px;height:16px;font-size:10px}
+  .ic.correct{background:var(--green);color:#062a16}
+  .ic.wrong{background:var(--red);color:#3a0808}
+  .ic.pending{background:transparent;border:1.5px solid var(--grey);color:var(--grey)}
+  .ic.nopick{background:transparent;border:1.5px dashed #3a443d;color:#3a443d}
+
+  /* ---------- Leaderboard ---------- */
+  ol.board{list-style:none;margin:8px 0 30px;padding:0;display:flex;flex-direction:column;gap:9px}
+  .row{
+    position:relative;display:grid;grid-template-columns:42px 1fr auto;align-items:center;
+    gap:12px;padding:12px 14px;border-radius:16px;
+    background:linear-gradient(180deg,var(--panel),var(--panel-2));
+    border:1px solid var(--line);box-shadow:var(--shadow);
+    opacity:0;transform:translateY(8px);animation:rise .5s cubic-bezier(.2,.7,.3,1) forwards;
+  }
+  @keyframes rise{to{opacity:1;transform:none}}
+  .rank{font-family:'Anton',sans-serif;font-size:26px;color:var(--ink-faint);text-align:center;line-height:1}
+  .name{font-weight:700;font-size:17px;letter-spacing:.2px}
+  .meta{font-size:12px;color:var(--ink-faint);margin-top:1px}
+  .pts{font-family:'Anton',sans-serif;font-size:30px;line-height:.9;text-align:right;color:var(--ink)}
+  .pts small{display:block;font-family:'Archivo';font-weight:600;font-size:10px;letter-spacing:.18em;color:var(--ink-faint);text-transform:uppercase;margin-top:2px}
+
+  /* podium accents */
+  .row.r1{border-color:var(--gold-deep);background:linear-gradient(180deg,#1d1c10,#15160f)}
+  .row.r1 .rank{color:var(--gold)}
+  .row.r1 .pts{color:var(--gold)}
+  .row.r1::before{content:"";position:absolute;inset:0;border-radius:16px;padding:1px;
+    background:linear-gradient(120deg,var(--gold),transparent 40%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.6}
+  .row.r2 .rank,.row.r3 .rank{color:var(--ink-dim)}
+  .crown{font-size:13px;color:var(--gold);margin-left:6px}
+
+  /* strip spans all columns */
+  .strip{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:3px;margin-top:4px;padding-top:10px;border-top:1px dashed var(--line)}
+  .md{display:flex;gap:3px;flex-wrap:wrap;align-items:center}
+  .md + .md{margin-left:5px;padding-left:8px;border-left:1px solid var(--line)}
+  .cell{width:15px;height:15px;font-size:9px;cursor:default}
+  .cell.last{outline:2px solid var(--gold);outline-offset:1px;width:17px;height:17px;font-size:10px;box-shadow:0 0 10px rgba(246,201,69,.5)}
+  .cell.last.correct{outline-color:#bff5d8}
+  .cell.last.wrong{outline-color:#ffc9c9}
+
+  footer{color:var(--ink-faint);font-size:12px;text-align:center;padding:18px 0 28px;line-height:1.6}
+  footer a{color:var(--ink-dim)}
+  .empty{padding:40px 16px;text-align:center;color:var(--ink-dim);font-size:15px}
+  .err{color:var(--red)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="titlerow">
+      <h1>Porra <span class="em">Mundial</span> 2026</h1>
+      <span class="badge"><span class="dot" style="display:inline-block;margin-right:5px"></span>En directo</span>
+    </div>
+    <div class="substrip">
+      <span class="chip" id="progress">— / 72 partidos</span>
+      <span class="chip" id="lastResult" hidden></span>
+      <span class="chip" id="updated">Actualizando…</span>
+    </div>
+  </header>
+
+  <div class="legend">
+    <span><i class="ic lg correct">✓</i> Acertado</span>
+    <span><i class="ic lg wrong">✕</i> Fallado</span>
+    <span><i class="ic lg pending">·</i> Sin jugar</span>
+    <span><i class="ic lg nopick">–</i> Sin pronóstico</span>
+    <span style="color:var(--gold)">◎ Último partido</span>
+  </div>
+
+  <ol class="board" id="board"><li class="empty">Cargando clasificación…</li></ol>
+
+  <footer>
+    Porra del Mundial 2026 · 1 punto por acierto en la fase de grupos.<br>
+    Resultados vía <a href="https://www.football-data.org">football-data.org</a> ·
+    se actualiza solo cada pocos minutos.
+  </footer>
+</div>
+
+<script>
+const OUTCOME_GLYPH = {correct:"✓", wrong:"✕", pending:"·", nopick:"–"};
+let PRED=null, CODES=null;
+
+async function getJSON(url){
+  const r = await fetch(url + (url.includes("?")?"&":"?") + "t=" + Date.now(), {cache:"no-store"});
+  if(!r.ok) throw new Error(url + " → " + r.status);
+  return r.json();
+}
+
+function relTime(iso){
+  if(!iso) return "—";
+  const d = new Date(iso), now = new Date(), s = Math.round((now-d)/1000);
+  if(s<60) return "hace un momento";
+  if(s<3600) return "hace " + Math.floor(s/60) + " min";
+  if(s<86400) return "hace " + Math.floor(s/3600) + " h";
+  return d.toLocaleDateString("es-ES",{day:"numeric",month:"short"});
+}
+
+function cellStatus(pick, outcome){
+  if(outcome==null) return "pending";   // match not finished
+  if(pick==null)    return "nopick";     // player left it blank
+  return pick===outcome ? "correct" : "wrong";
+}
+
+function computeStandings(results){
+  const byPlayer = {};
+  for(const p of PRED.players) byPlayer[p] = {name:p, points:0, lastCorrect:false, cells:[]};
+  for(const m of PRED.matches){
+    const res = results.matches[m.id] || {};
+    const outcome = res.outcome ?? null;
+    for(const p of PRED.players){
+      const pick = PRED.predictions[m.id]?.[p] ?? null;
+      const st = cellStatus(pick, outcome);
+      if(st==="correct") byPlayer[p].points++;
+      byPlayer[p].cells.push({mid:m.id, matchday:m.matchday, status:st, pick, outcome,
+                              team1:m.team1, team2:m.team2, score:res.score});
+    }
+  }
+  const lastId = results.lastFinishedId;
+  if(lastId){
+    for(const p of PRED.players){
+      const c = byPlayer[p].cells.find(c=>c.mid===lastId);
+      byPlayer[p].lastCorrect = c && c.status==="correct";
+    }
+  }
+  // tiebreak: points desc, then more recent correct, then name
+  const order = c => c.status==="correct";
+  return Object.values(byPlayer).sort((a,b)=>{
+    if(b.points!==a.points) return b.points-a.points;
+    const ar=[...a.cells].reverse().findIndex(order), br=[...b.cells].reverse().findIndex(order);
+    if(ar!==br) return (ar<0?1e9:ar)-(br<0?1e9:br);
+    return a.name.localeCompare(b.name,"es");
+  });
+}
+
+function flag(code){ return CODES[code]?.flag || ""; }
+function title(c){
+  const f1=flag(c.team1), f2=flag(c.team2);
+  const sc = c.score ? c.score.replace("-","–") : (c.outcome==null?"sin jugar":"");
+  const pick = c.pick ? {"1":c.team1,"X":"empate","2":c.team2}[c.pick] : "sin pronóstico";
+  const mark = {correct:"✓ acierto",wrong:"✕ fallo",pending:"",nopick:""}[c.status];
+  return `${f1}${c.team1} ${sc} ${c.team2}${f2}\nPronóstico: ${pick} ${mark}`.trim();
+}
+
+function render(results){
+  // header progress + last result
+  const played = PRED.matches.filter(m => (results.matches[m.id]||{}).outcome!=null).length;
+  document.getElementById("progress").innerHTML = `<b>${played}</b> / 72 partidos`;
+  document.getElementById("updated").textContent = "Actualizado " + relTime(results.lastUpdated);
+
+  const lr = document.getElementById("lastResult");
+  const lastId = results.lastFinishedId;
+  if(lastId){
+    const m = PRED.matches.find(x=>x.id===lastId), r = results.matches[lastId]||{};
+    const sc = r.score ? r.score.replace("-","–") : "";
+    lr.hidden=false;
+    lr.innerHTML = `Último: <b class="lastgame">${flag(m.team1)} ${m.team1} <span class="sc">${sc}</span> ${m.team2} ${flag(m.team2)}</b>`;
+  } else { lr.hidden=true; }
+
+  const standings = computeStandings(results);
+  const board = document.getElementById("board");
+  board.innerHTML = "";
+  if(played===0){
+    const note = document.createElement("li");
+    note.className = "empty";
+    note.innerHTML = "La fase de grupos aún no tiene resultados.<br>La clasificación se actualizará en cuanto acabe el primer partido. ⚽";
+    board.appendChild(note);
+  }
+  standings.forEach((pl, i)=>{
+    const rank = i+1;
+    const li = document.createElement("li");
+    li.className = "row" + (rank<=3 ? " r"+rank : "");
+    li.style.animationDelay = (i*40)+"ms";
+
+    // group cells by matchday for visual separation
+    let strip = "";
+    let curMd = null;
+    for(const c of pl.cells){
+      if(c.matchday!==curMd){ if(curMd!==null) strip+="</div>"; strip+=`<div class="md">`; curMd=c.matchday; }
+      const isLast = c.mid===lastId;
+      strip += `<i class="ic cell ${c.status}${isLast?" last":""}" title="${title(c).replace(/"/g,'&quot;')}">${OUTCOME_GLYPH[c.status]}</i>`;
+    }
+    strip += "</div>";
+
+    li.innerHTML = `
+      <div class="rank">${rank}</div>
+      <div>
+        <div class="name">${pl.name}${rank===1?'<span class="crown">★</span>':''}</div>
+        <div class="meta">${pl.points} acierto${pl.points===1?"":"s"}${pl.lastCorrect?" · acertó el último ✓":""}</div>
+      </div>
+      <div class="pts">${pl.points}<small>pts</small></div>
+      <div class="strip">${strip}</div>`;
+    board.appendChild(li);
+  });
+}
+
+async function tick(){
+  try{
+    const results = await getJSON("data/results.json");
+    render(results);
+  }catch(e){
+    document.getElementById("updated").innerHTML = `<span class="err">Error al cargar resultados</span>`;
+    console.error(e);
+  }
+}
+
+(async function init(){
+  try{
+    [PRED, CODES] = await Promise.all([getJSON("data/predictions.json"), getJSON("data/team-codes.json")]);
+  }catch(e){
+    document.getElementById("board").innerHTML = `<li class="empty err">No se pudieron cargar los datos (${e.message}).</li>`;
+    return;
+  }
+  await tick();
+  setInterval(tick, 3*60*1000);                 // refresh every 3 min
+  document.addEventListener("visibilitychange", ()=>{ if(!document.hidden) tick(); });
+})();
+</script>
+</body>
+</html>
