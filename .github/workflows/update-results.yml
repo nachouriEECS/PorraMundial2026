@@ -5,7 +5,10 @@ name: Update results
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   # every 30 minutes (UTC)
+    # Every 10 minutes. NOTE: GitHub runs scheduled jobs on a best-effort basis
+    # and often delays them under load, so updates can still lag behind real time.
+    # For an instant refresh after a game, use the "Run workflow" button.
+    - cron: "*/10 * * * *"
   workflow_dispatch:          # manual "Run workflow" button
 
 # Allow the job to push the updated data file back to the repo.
