@@ -120,6 +120,25 @@
   @keyframes rise{to{opacity:1;transform:none}}
   .rank{font-family:'Anton',sans-serif;font-size:26px;color:var(--ink-faint);text-align:center;line-height:1}
   .name{font-weight:700;font-size:17px;letter-spacing:.2px}
+  /* clickable name → bonus accordion */
+  .name.toggle{cursor:pointer;display:inline-flex;align-items:center;gap:7px;user-select:none}
+  .name.toggle:hover{color:var(--green)}
+  .name .chev{font-size:11px;color:var(--ink-faint);transition:transform .2s ease;flex:none}
+  .name.toggle:hover .chev{color:var(--green)}
+  .row.open .name .chev{transform:rotate(90deg)}
+
+  /* bonus answers panel (spans all columns, like .strip) */
+  .bonus{grid-column:1/-1;display:none;margin-top:8px;padding-top:10px;border-top:1px dashed var(--line)}
+  .row.open .bonus{display:block;animation:bfade .28s ease}
+  @keyframes bfade{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+  .bonus dl{margin:0;display:grid;grid-template-columns:1fr;gap:2px}
+  @media(min-width:560px){.bonus dl{grid-template-columns:1fr 1fr;column-gap:22px}}
+  .bonus .qa{display:flex;align-items:baseline;gap:6px;padding:4px 0;min-width:0}
+  .bonus dt{color:var(--ink-faint);font-size:12.5px;white-space:nowrap;flex:none}
+  .bonus .lead{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-3px);min-width:8px}
+  .bonus dd{margin:0;font-weight:600;font-size:13.5px;color:var(--ink);white-space:nowrap}
+  .bonus dd.num{font-family:'Spline Sans Mono',monospace;color:var(--green)}
+  .bonus dd.empty{color:var(--ink-faint);font-weight:400}
   .meta{font-size:12px;color:var(--ink-faint);margin-top:1px}
   .pts{font-family:'Anton',sans-serif;font-size:30px;line-height:.9;text-align:right;color:var(--ink)}
   .pts small{display:block;font-family:'Archivo';font-weight:600;font-size:10px;letter-spacing:.18em;color:var(--ink-faint);text-transform:uppercase;margin-top:2px}
@@ -185,6 +204,27 @@
 
 <script>
 let PRED=null, CODES=null;
+let openPlayer=null;   // name of the player whose bonus panel is expanded
+
+function esc(s){
+  return String(s).replace(/[&<>"]/g, c => (
+    {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]
+  ));
+}
+
+// Bonus answers panel for one player (Campeón, Pichichi, …).
+function bonusHTML(name){
+  const ans = (PRED.bonus && PRED.bonus[name]) || {};
+  let rows = "";
+  for(const q of (PRED.bonusQuestions || [])){
+    const v = ans[q.key];
+    const isNum = v!=null && /^\d+$/.test(v);
+    const cls = v==null ? "empty" : (isNum ? "num" : "");
+    const val = v==null ? "—" : esc(v);
+    rows += `<div class="qa"><dt>${esc(q.label)}</dt><span class="lead"></span><dd class="${cls}">${val}</dd></div>`;
+  }
+  return `<dl>${rows}</dl>`;
+}
 
 async function getJSON(url){
   const r = await fetch(url + (url.includes("?")?"&":"?") + "t=" + Date.now(), {cache:"no-store"});
@@ -337,7 +377,7 @@ function render(results){
   standings.forEach((pl, i)=>{
     const rank = i+1;
     const li = document.createElement("li");
-    li.className = "row" + (rank<=3 ? " r"+rank : "");
+    li.className = "row" + (rank<=3 ? " r"+rank : "") + (pl.name===openPlayer ? " open" : "");
     li.style.animationDelay = (i*40)+"ms";
 
     // group cells by matchday for visual separation
@@ -353,11 +393,25 @@ function render(results){
     li.innerHTML = `
       <div class="rank">${rank}</div>
       <div>
-        <div class="name">${pl.name}${rank===1?'<span class="crown">★</span>':''}</div>
+        <div class="name toggle" role="button" tabindex="0" aria-expanded="${pl.name===openPlayer}" title="Ver apuestas de ${esc(pl.name)}"><span class="chev">▶</span><span>${esc(pl.name)}</span>${rank===1?'<span class="crown">★</span>':''}</div>
         <div class="meta">${pl.points} acierto${pl.points===1?"":"s"}${pl.lastCorrect?" · acertó el último ✓":""}</div>
       </div>
       <div class="pts">${pl.points}<small>pts</small></div>
-      <div class="strip">${strip}</div>`;
+      <div class="strip">${strip}</div>
+      <div class="bonus">${bonusHTML(pl.name)}</div>`;
+
+    const nameEl = li.querySelector(".name.toggle");
+    const toggle = ()=>{
+      openPlayer = (openPlayer===pl.name) ? null : pl.name;
+      // accordion: collapse any other open row
+      document.querySelectorAll(".row.open").forEach(r=>{ if(r!==li) r.classList.remove("open"); });
+      const nowOpen = openPlayer===pl.name;
+      li.classList.toggle("open", nowOpen);
+      nameEl.setAttribute("aria-expanded", nowOpen);
+    };
+    nameEl.addEventListener("click", toggle);
+    nameEl.addEventListener("keydown", e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); toggle(); } });
+
     board.appendChild(li);
   });
 }
