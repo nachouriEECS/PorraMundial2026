@@ -16,9 +16,11 @@ Usage:
   FOOTBALL_DATA_TOKEN=xxx python3 scripts/fetch_results.py            # write results.json
   FOOTBALL_DATA_TOKEN=xxx python3 scripts/fetch_results.py --verify   # diagnostics, no write
 """
+import http.client
 import json
 import os
 import sys
+import time
 import unicodedata
 import urllib.request
 import urllib.error
@@ -26,6 +28,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 API_URL = "https://api.football-data.org/v4/competitions/WC/matches"
+
+# The football-data.org free tier intermittently drops connections (connection
+# reset, remote disconnect) and rate-limits with 429s. A single blip should not
+# fail the whole scheduled run, so retry transient failures with backoff.
+MAX_ATTEMPTS = 4
+RETRY_BACKOFF = 5  # seconds, multiplied by attempt number
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -58,14 +66,27 @@ def build_alias_index(codes):
 
 def fetch_api(token):
     req = urllib.request.Request(API_URL, headers={"X-Auth-Token": token})
-    try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            return json.loads(resp.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        body = e.read().decode("utf-8", "replace")
-        sys.exit(f"API HTTP {e.code}: {body}")
-    except urllib.error.URLError as e:
-        sys.exit(f"API request failed: {e}")
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", "replace")
+            # 429 (rate limit) and 5xx are transient; other codes (e.g. 403 bad
+            # token) are real errors, so fail fast on those.
+            if e.code != 429 and e.code < 500:
+                sys.exit(f"API HTTP {e.code}: {body}")
+            err = f"API HTTP {e.code}: {body}"
+        except (urllib.error.URLError, http.client.HTTPException, OSError) as e:
+            # Connection reset, remote disconnect, timeout, DNS hiccup, etc.
+            err = f"API request failed: {e}"
+
+        if attempt < MAX_ATTEMPTS:
+            wait = RETRY_BACKOFF * attempt
+            print(f"{err}\n  retrying in {wait}s ({attempt}/{MAX_ATTEMPTS - 1})...",
+                  file=sys.stderr)
+            time.sleep(wait)
+    sys.exit(f"{err}\n  giving up after {MAX_ATTEMPTS} attempts.")
 
 
 def resolve_code(name, alias_idx):
