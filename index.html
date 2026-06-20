@@ -161,6 +161,38 @@
   .cell.last.correct{outline-color:#bff5d8}
   .cell.last.wrong{outline-color:#ffc9c9}
 
+  /* ---------- Excel-format table ---------- */
+  .excel-wrap{margin:26px 2px 8px}
+  .excel-toggle{
+    display:inline-flex;align-items:center;gap:10px;cursor:pointer;
+    font-family:'Spline Sans Mono',monospace;font-weight:600;font-size:13px;letter-spacing:.04em;
+    color:var(--ink);background:linear-gradient(180deg,var(--panel),var(--panel-2));
+    border:1px solid var(--line);border-radius:12px;padding:11px 16px;box-shadow:var(--shadow);
+  }
+  .excel-toggle:hover{border-color:var(--green);color:var(--green)}
+  .excel-toggle .xicon{color:var(--green);font-size:15px;line-height:1}
+  .excel-toggle .chev{font-size:11px;color:var(--ink-faint);transition:transform .2s ease}
+  .excel-toggle.open .chev{transform:rotate(90deg);color:var(--green)}
+  .excel-toggle:hover .chev{color:var(--green)}
+
+  .excel-panel{margin-top:12px;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);animation:bfade .28s ease}
+  .xhint{font-size:11.5px;color:var(--ink-faint);padding:9px 14px;border-bottom:1px solid var(--line);background:var(--bg-2)}
+  .xscroll{overflow:auto;max-height:78vh;-webkit-overflow-scrolling:touch}
+  table.xls{border-collapse:separate;border-spacing:0;font-family:'Spline Sans Mono',monospace;font-size:12.5px;white-space:nowrap;width:max-content;min-width:100%}
+  table.xls th,table.xls td{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:7px 11px;text-align:center}
+  table.xls thead th{position:sticky;top:0;z-index:3;background:var(--panel-2);color:var(--ink);font-weight:600;font-size:12px}
+  table.xls thead th.xcorner{left:0;z-index:5;text-align:left;color:var(--green)}
+  th.xmatch{position:sticky;left:0;z-index:2;background:var(--bg-2);color:var(--ink-dim);text-align:left;font-weight:600}
+  tr.xjor td{position:sticky;left:0;z-index:2;text-align:left;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:11.5px;
+    color:var(--gold);background:linear-gradient(180deg,rgba(246,201,69,.14),rgba(246,201,69,.07));border-bottom:1px solid var(--gold-deep)}
+  td.x{color:var(--ink);font-weight:600}
+  td.x.correct{background:rgba(33,208,122,.16);color:#8ef0bb}
+  td.x.wrong{background:rgba(236,74,74,.15);color:#ffb4b4}
+  td.x.pending{color:var(--ink-dim)}
+  td.x.nopick{color:var(--ink-faint)}
+  tr.xlast th.xmatch{color:var(--gold)}
+  tr.xlast td,tr.xlast th.xmatch{box-shadow:inset 0 0 0 9999px rgba(246,201,69,.04)}
+
   footer{color:var(--ink-faint);font-size:12px;text-align:center;padding:18px 0 28px;line-height:1.6}
   footer a{color:var(--ink-dim)}
   .empty{padding:40px 16px;text-align:center;color:var(--ink-dim);font-size:15px}
@@ -193,6 +225,13 @@
   <div class="layout">
     <ol class="board" id="board"><li class="empty">Cargando clasificación…</li></ol>
     <aside class="fixtures" id="fixtures"></aside>
+  </div>
+
+  <div class="excel-wrap">
+    <button class="excel-toggle" id="excelToggle" aria-expanded="false" aria-controls="excelPanel">
+      <span class="xicon">▦</span><span>Resultados Formato Excel</span><span class="chev">▶</span>
+    </button>
+    <div class="excel-panel" id="excelPanel" hidden></div>
   </div>
 
   <footer>
@@ -339,6 +378,35 @@ function title(c){
   return `${f1}${c.team1} ${sc} ${c.team2}${f2}\nPronóstico: ${pick} ${mark}`.trim();
 }
 
+// Excel-style grid: matches as rows (by Jornada), players as columns.
+function renderExcel(results){
+  const panel = document.getElementById("excelPanel");
+  const lastId = results.lastFinishedId;
+  const ncols = PRED.players.length + 1;
+  let head = `<tr><th class="xcorner">Partidos</th>`;
+  for(const p of PRED.players) head += `<th>${esc(p)}</th>`;
+  head += `</tr>`;
+
+  let body = "", curMd = null;
+  for(const m of PRED.matches){
+    if(m.matchday!==curMd){ curMd=m.matchday; body += `<tr class="xjor"><td colspan="${ncols}">Jornada ${curMd}</td></tr>`; }
+    const res = results.matches[m.id] || {};
+    const outcome = res.outcome ?? null;
+    const sc = res.score ? ` ${res.score.replace("-","–")}` : "";
+    const isLast = m.id===lastId;
+    body += `<tr class="${isLast?'xlast':''}"><th class="xmatch" title="${esc(cname(m.team1))} vs ${esc(cname(m.team2))}${sc}">${esc(m.team1)} - ${esc(m.team2)}${sc}</th>`;
+    for(const p of PRED.players){
+      const pick = PRED.predictions[m.id]?.[p] ?? null;
+      const st = cellStatus(pick, outcome);
+      body += `<td class="x ${st}">${pick==null?"":pick}</td>`;
+    }
+    body += `</tr>`;
+  }
+  panel.innerHTML =
+    `<div class="xhint">El número es el pronóstico (1 local · X empate · 2 visitante). Verde = acertado · rojo = fallado · gris = sin jugar.</div>
+     <div class="xscroll"><table class="xls"><thead>${head}</thead><tbody>${body}</tbody></table></div>`;
+}
+
 function render(results){
   // header progress + last result
   const played = PRED.matches.filter(m => (results.matches[m.id]||{}).outcome!=null).length;
@@ -364,6 +432,7 @@ function render(results){
   } else { nx.hidden=true; }
 
   renderFixtures(results);
+  renderExcel(results);
 
   const standings = computeStandings(results);
   const board = document.getElementById("board");
@@ -425,6 +494,18 @@ async function tick(){
     console.error(e);
   }
 }
+
+// Excel-format dropdown toggle
+(function(){
+  const btn = document.getElementById("excelToggle");
+  const panel = document.getElementById("excelPanel");
+  btn.addEventListener("click", ()=>{
+    const open = panel.hidden;
+    panel.hidden = !open;
+    btn.classList.toggle("open", open);
+    btn.setAttribute("aria-expanded", open);
+  });
+})();
 
 (async function init(){
   try{
