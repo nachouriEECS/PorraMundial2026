@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20T19:50:46Z",
+  "lastUpdated": "2026-06-20T21:02:16Z",
   "lastFinishedId": "j2-09",
   "nextMatchId": "j2-10",
   "matches": {
@@ -235,7 +235,7 @@
       "source": "api"
     },
     "j2-10": {
-      "status": "TIMED",
+      "status": "PAUSED",
       "outcome": null,
       "score": null,
       "utcDate": "2026-06-20T20:00:00Z",
