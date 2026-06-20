@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-06-20T18:00:37Z",
-  "lastFinishedId": "j2-08",
-  "nextMatchId": "j2-09",
+  "lastUpdated": "2026-06-20T19:50:46Z",
+  "lastFinishedId": "j2-09",
+  "nextMatchId": "j2-10",
   "matches": {
     "j1-01": {
       "status": "FINISHED",
@@ -228,9 +228,9 @@
       "source": "api"
     },
     "j2-09": {
-      "status": "PAUSED",
-      "outcome": null,
-      "score": null,
+      "status": "FINISHED",
+      "outcome": "1",
+      "score": "5-1",
       "utcDate": "2026-06-20T17:00:00Z",
       "source": "api"
     },
