@@ -298,10 +298,26 @@ function cellStatus(pick, outcome){
 // What shows inside each circle: the player's own pick (1 / X / 2), or a dash.
 function cellLabel(c){ return c.status==="nopick" ? "–" : c.pick; }
 
+// Matches ordered for display: by Jornada, then real kickoff time (utcDate).
+// Official fixture numbering within a Jornada isn't chronological, so without
+// this the "Próximo" match (and its circle) can land below later matches.
+// Falls back to fixture order when a kickoff time is missing.
+function orderedMatches(results){
+  return PRED.matches
+    .map((m,i)=>({m,i,t:(results.matches[m.id]||{}).utcDate||null}))
+    .sort((a,b)=>{
+      if(a.m.matchday!==b.m.matchday) return a.m.matchday-b.m.matchday;
+      if(a.t&&b.t&&a.t!==b.t) return a.t<b.t?-1:1;
+      if(!!a.t!==!!b.t) return a.t?-1:1;   // matches with a time come first
+      return a.i-b.i;                       // stable: keep fixture order
+    })
+    .map(x=>x.m);
+}
+
 function computeStandings(results){
   const byPlayer = {};
   for(const p of PRED.players) byPlayer[p] = {name:p, points:0, lastCorrect:false, cells:[]};
-  for(const m of PRED.matches){
+  for(const m of orderedMatches(results)){
     const res = results.matches[m.id] || {};
     const outcome = res.outcome ?? null;
     for(const p of PRED.players){
@@ -337,7 +353,7 @@ function renderFixtures(results){
   const played = PRED.matches.filter(m => (results.matches[m.id]||{}).outcome!=null).length;
   let html = `<div class="fx-title">Calendario</div><div class="fx-sub">${played}/72 jugados · fase de grupos</div>`;
   let curMd = null;
-  for(const m of PRED.matches){
+  for(const m of orderedMatches(results)){
     if(m.matchday!==curMd){ curMd=m.matchday; html += `<div class="fx-md">Jornada ${curMd}</div>`; }
     const r = results.matches[m.id] || {};
     const isNext = results.nextMatchId===m.id;
