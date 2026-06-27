@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-26T23:19:25Z",
+  "lastUpdated": "2026-06-27T01:24:46Z",
   "lastFinishedId": "j3-14",
   "nextMatchId": "j3-15",
   "matches": {
@@ -438,14 +438,14 @@
       "source": "api"
     },
     "j3-15": {
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "outcome": null,
       "score": null,
       "utcDate": "2026-06-27T00:00:00Z",
       "source": "api"
     },
     "j3-16": {
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "outcome": null,
       "score": null,
       "utcDate": "2026-06-27T00:00:00Z",
