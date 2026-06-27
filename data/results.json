@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-06-27T22:16:52Z",
-  "lastFinishedId": "j3-18",
-  "nextMatchId": "j3-19",
+  "lastUpdated": "2026-06-27T23:17:58Z",
+  "lastFinishedId": "j3-20",
+  "nextMatchId": "j3-21",
   "matches": {
     "j1-01": {
       "status": "FINISHED",
@@ -466,16 +466,16 @@
       "source": "api"
     },
     "j3-19": {
-      "status": "IN_PLAY",
-      "outcome": null,
-      "score": null,
+      "status": "FINISHED",
+      "outcome": "2",
+      "score": "0-2",
       "utcDate": "2026-06-27T21:00:00Z",
       "source": "api"
     },
     "j3-20": {
-      "status": "IN_PLAY",
-      "outcome": null,
-      "score": null,
+      "status": "FINISHED",
+      "outcome": "1",
+      "score": "2-1",
       "utcDate": "2026-06-27T21:00:00Z",
       "source": "api"
     },
