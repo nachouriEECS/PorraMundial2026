@@ -112,8 +112,8 @@
      background:rgba(255,255,255,.012)}
 
   /* match box */
-  .mb{position:relative;display:flex;align-items:stretch;border:1px solid var(--line);
-     border-radius:10px;background:var(--bg-2);overflow:hidden;transition:border-color .15s}
+  .mb{position:relative;display:flex;align-items:stretch;flex:none;border:1px solid var(--line);
+     border-radius:10px;background:var(--bg-2);transition:border-color .15s}
   .side.right .mb{direction:ltr}
   .mb .teams{position:relative;flex:1;min-width:0;padding:7px 9px}
   .mb .tm{position:relative;display:flex;align-items:center;gap:6px;font-size:12.5px;line-height:1.35;min-width:0}
@@ -128,7 +128,7 @@
   /* points column (right edge) — always visible, never covers the score */
   .mb .pcol{flex:none;width:30px;display:flex;align-items:center;justify-content:center;
      font-family:'Spline Sans Mono',monospace;font-weight:700;font-size:15px;
-     border-left:1px solid var(--line);color:var(--ink-faint)}
+     border-left:1px solid var(--line);border-radius:0 9px 9px 0;color:var(--ink-faint)}
   /* color scales by points */
   .mb.p0{border-color:var(--p0);background:linear-gradient(180deg,var(--p0-bg),var(--bg-2))}
   .mb.p0 .pcol{background:var(--p0);color:#2a0606;border-left-color:var(--p0)}
