@@ -1,6 +1,151 @@
 {
-  "lastUpdated": null,
-  "lastFinishedId": null,
-  "nextMatchId": null,
-  "matches": {}
+  "lastUpdated": "2026-06-28T21:13:59Z",
+  "lastFinishedId": "r32-03",
+  "nextMatchId": "r32-09",
+  "matches": {
+    "r32-01": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-06-29T20:30:00Z",
+      "source": "api"
+    },
+    "r32-02": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-06-30T21:00:00Z",
+      "source": "api"
+    },
+    "r32-03": {
+      "status": "FINISHED",
+      "g1": 0,
+      "g2": 1,
+      "adv": "CAN",
+      "score": "0-1",
+      "utcDate": "2026-06-28T19:00:00Z",
+      "source": "api"
+    },
+    "r32-04": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-06-30T01:00:00Z",
+      "source": "api"
+    },
+    "r32-05": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-07-02T23:00:00Z",
+      "source": "api"
+    },
+    "r32-06": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-07-02T19:00:00Z",
+      "source": "api"
+    },
+    "r32-07": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-07-02T00:00:00Z",
+      "source": "api"
+    },
+    "r32-08": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-07-01T20:00:00Z",
+      "source": "api"
+    },
+    "r32-09": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-06-29T17:00:00Z",
+      "source": "api"
+    },
+    "r32-10": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-06-30T17:00:00Z",
+      "source": "api"
+    },
+    "r32-11": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-07-01T01:00:00Z",
+      "source": "api"
+    },
+    "r32-12": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-07-01T16:00:00Z",
+      "source": "api"
+    },
+    "r32-13": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-07-03T22:00:00Z",
+      "source": "api"
+    },
+    "r32-14": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-07-03T18:00:00Z",
+      "source": "api"
+    },
+    "r32-15": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-07-03T03:00:00Z",
+      "source": "api"
+    },
+    "r32-16": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-07-04T01:30:00Z",
+      "source": "api"
+    }
+  }
 }
