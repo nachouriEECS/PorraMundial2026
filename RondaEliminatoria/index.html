@@ -345,18 +345,16 @@ function matchBox(m, cell){
   const adv1 = pred && pred.adv===m.team1, adv2 = pred && pred.adv===m.team2;
   const mark = on => `<span class="passmark"${on?'':' style="visibility:hidden"'}>▸</span>`;
 
-  // The player's predicted advancer, spelled out. A tie means it's decided on
-  // penalties, so flag that explicitly (this was the ambiguous case).
+  // Only spell out the advancer on a tie — that's the ambiguous case, decided on
+  // penalties. Decisive scores already show the winner via the higher score.
   let passLine = "";
-  if(pred && pred.adv){
-    const tiePen = pred.g1===pred.g2;
-    passLine = `<div class="passline"><span class="lab">▸ Pasa</span><span class="who">${esc(cname(pred.adv))}</span>${tiePen?'<span class="pentag">PENALTIS</span>':''}</div>`;
+  if(pred && pred.adv && pred.g1===pred.g2){
+    passLine = `<div class="passline"><span class="lab">▸ Pasa</span><span class="who">${esc(cname(pred.adv))}</span><span class="pentag">PENALTIS</span></div>`;
   }
   let resLine="";
   if(res && res.status==="FINISHED" && res.g1!=null){
-    const w = res.adv ? cname(res.adv) : "";
-    const tie = res.g1===res.g2;
-    resLine = `<div class="res">real <b>${res.g1}-${res.g2}</b>${w?` · pasa ${esc(w)}`:""}${tie&&w?' <span class="pentag">PEN</span>':''}</div>`;
+    const tie = res.g1===res.g2 && res.adv;   // only a tie needs the advancer spelled out
+    resLine = `<div class="res">real <b>${res.g1}-${res.g2}</b>${tie?` · pasa ${esc(cname(res.adv))} <span class="pentag">PEN</span>`:""}</div>`;
   }
   return `<div class="${cls}"><div class="teams">
     <div class="tm${adv1?" adv":""}">${mark(adv1)}<span class="fl">${flag(m.team1)}</span><span class="nm">${esc(cname(m.team1))}</span><span class="gl">${g1}</span></div>
