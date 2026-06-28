@@ -169,18 +169,16 @@
      letter-spacing:.2em;color:var(--ink-faint);text-transform:uppercase;margin-top:3px}
   .ccard .maxline{font-size:10.5px;color:var(--ink-faint);margin-top:8px}
 
-  /* mobile stacked bracket */
-  .mstack{display:none}
-  @media(max-width:860px){
-    .bracket{display:none}
-    .mstack{display:block}
-    .mcard{margin:0 2px 14px}
-    .mcol-title{font-family:'Spline Sans Mono',monospace;font-size:11px;font-weight:700;
-       letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin:14px 4px 8px}
-    .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-    .mgrid .mb{min-height:62px}
+  /* On narrow screens the bracket keeps its desktop layout and scrolls
+     horizontally (swipe left/right) instead of collapsing to a list. */
+  .bracket-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  @media(max-width:980px){
+    .bracket{min-width:940px}
+    .bracket-scroll{margin:0 -14px;padding:0 14px 8px;
+      scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+    .bracket-scroll::-webkit-scrollbar{height:7px}
+    .bracket-scroll::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
   }
-  @media(max-width:430px){.mgrid{grid-template-columns:1fr}}
 
   /* ---------- Excel popup ---------- */
   .excel-wrap{margin:22px 2px 8px}
@@ -249,8 +247,7 @@
         <span class="sep"></span>
         <span style="color:var(--ink-faint)">1 acertar quién pasa · +1 goles local · +1 goles visitante</span>
       </div>
-      <div id="bracket" class="bracket"></div>
-      <div id="mstack" class="mstack"></div>
+      <div class="bracket-scroll"><div id="bracket" class="bracket"></div></div>
     </div>
   </div>
 
@@ -384,19 +381,6 @@ function renderBracket(row){
       <div class="maxline">Grupos ${row.base} · Eliminatoria ${row.r32}/${max}</div>
     </div></div>`;
   document.getElementById("bracket").innerHTML = left + center + right;
-
-  // mobile stacked
-  const grp = side => PRED.matches.filter(m=>m.side===side).sort((a,b)=>a.pos-b.pos)
-      .map(m=>matchBox(m,row.cells[m.id])).join("");
-  document.getElementById("mstack").innerHTML = `
-    <div class="mcard ccard" style="width:auto;max-width:none">
-      <div class="who">${esc(row.name)}</div>
-      <div class="rkline">${row.rank}º de ${PRED.players.length}</div>
-      <div class="total">${row.total}<small>puntos</small></div>
-      <div class="maxline">Grupos ${row.base} · Eliminatoria ${row.r32}/${max}</div>
-    </div>
-    <div class="mcol-title">Lado izquierdo</div><div class="mgrid">${grp("left")}</div>
-    <div class="mcol-title">Lado derecho</div><div class="mgrid">${grp("right")}</div>`;
 }
 
 function renderBoard(rows){
