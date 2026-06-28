@@ -180,6 +180,34 @@
     .bracket-scroll::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
   }
 
+  /* ---------- Header last/next chips ---------- */
+  .lastgame{font-family:'Spline Sans Mono',monospace;font-weight:600}
+  .chip .sc{color:var(--gold)}
+  .chip .pentag{margin-left:4px}
+
+  /* ---------- Calendario ---------- */
+  .cal{margin-top:18px;background:linear-gradient(180deg,var(--panel),var(--panel-2));
+     border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+  .cal-head{padding:14px 16px 12px}
+  .cal-title{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:.5px;text-transform:uppercase}
+  .cal-sub{font-size:12px;color:var(--ink-faint);margin-top:2px}
+  .cal-grid{display:grid;grid-template-columns:1fr}
+  @media(min-width:660px){.cal-grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1040px){.cal-grid{grid-template-columns:1fr 1fr 1fr}}
+  .fx{display:flex;align-items:center;justify-content:space-between;gap:10px;
+     padding:10px 16px;border-top:1px solid var(--line);font-size:13.5px;min-width:0}
+  .fx-teams{display:flex;align-items:center;gap:7px;min-width:0;flex-wrap:wrap}
+  .fx .t{white-space:nowrap}
+  .fx .fl{font-size:14px;margin-right:1px}
+  .fx .vs{color:var(--ink-faint);font-size:11px;font-family:'Spline Sans Mono',monospace}
+  .fx-status{flex:none;font-family:'Spline Sans Mono',monospace;font-weight:600;font-size:12px;
+     color:var(--ink-faint);white-space:nowrap;text-align:right}
+  .score-badge{background:rgba(33,208,122,.14);border:1px solid rgba(33,208,122,.4);
+     color:#79e8ab;border-radius:6px;padding:2px 7px}
+  .fx.played{background:rgba(33,208,122,.05)}
+  .fx.next{background:rgba(246,201,69,.08);box-shadow:inset 3px 0 0 var(--gold)}
+  .fx.next .fx-status{color:var(--gold)}
+
   /* ---------- Excel popup ---------- */
   .excel-wrap{margin:22px 2px 8px}
   .excel-toggle{display:inline-flex;align-items:center;gap:10px;cursor:pointer;
@@ -227,6 +255,8 @@
     </div>
     <div class="substrip">
       <span class="chip" id="progress">— / 16 partidos</span>
+      <span class="chip" id="lastResult" hidden></span>
+      <span class="chip" id="nextMatch" hidden></span>
       <span class="chip" id="updated">Cargando…</span>
     </div>
   </header>
@@ -250,6 +280,8 @@
       <div class="bracket-scroll"><div id="bracket" class="bracket"></div></div>
     </div>
   </div>
+
+  <div class="cal" id="calendar"></div>
 
   <div class="excel-wrap">
     <button class="excel-toggle" id="excelToggle" aria-expanded="false" aria-controls="excelPanel">
@@ -285,6 +317,13 @@ function relTime(iso){
   if(s<60)return "hace un momento"; if(s<3600)return "hace "+Math.floor(s/60)+" min";
   if(s<86400)return "hace "+Math.floor(s/3600)+" h";
   return d.toLocaleDateString("es-ES",{day:"numeric",month:"short"});
+}
+function fxWhen(iso){
+  if(!iso) return "por confirmar";
+  const d=new Date(iso);
+  const t=d.toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"});
+  const day=d.toLocaleDateString("es-ES",{weekday:"short",day:"numeric",month:"short"});
+  return `${day} ${t}`;
 }
 
 // 0-3 points for one prediction vs one result (null = not scorable yet).
@@ -426,10 +465,71 @@ function rerender(){
   renderExcel(rows);
 }
 
+// Fixtures ordered by real kickoff time (utcDate); matches without a time last.
+function orderedFixtures(){
+  return PRED.matches.map(m=>({m, r:resultFor(m.id)}))
+    .sort((a,b)=>{
+      const ta=(a.r&&a.r.utcDate)||"", tb=(b.r&&b.r.utcDate)||"";
+      if(ta&&tb) return ta<tb?-1:ta>tb?1:0;
+      if(!!ta!==!!tb) return ta?-1:1;
+      return 0;
+    });
+}
+
+function renderCalendar(){
+  const el=document.getElementById("calendar");
+  const fx=orderedFixtures();
+  const played=fx.filter(x=>x.r&&x.r.status==="FINISHED"&&x.r.g1!=null).length;
+  let cards="";
+  for(const {m,r} of fx){
+    const isNext=RES.nextMatchId===m.id;
+    const playedM=r&&r.status==="FINISHED"&&r.g1!=null;
+    let status;
+    if(playedM){
+      const tie=r.g1===r.g2&&r.adv;
+      status=`<span class="score-badge">${r.g1}–${r.g2}${tie?` (${esc(r.adv)})`:""}</span>`;
+    } else if(isNext){
+      status=`<span style="color:var(--gold)">Próximo · ${esc(fxWhen(r&&r.utcDate))}</span>`;
+    } else {
+      status=esc(fxWhen(r&&r.utcDate));
+    }
+    cards+=`<div class="fx${playedM?' played':''}${isNext?' next':''}">
+      <div class="fx-teams">
+        <span class="t"><span class="fl">${flag(m.team1)}</span>${esc(cname(m.team1))}</span>
+        <span class="vs">vs</span>
+        <span class="t"><span class="fl">${flag(m.team2)}</span>${esc(cname(m.team2))}</span>
+      </div>
+      <div class="fx-status">${status}</div>
+    </div>`;
+  }
+  el.innerHTML=`<div class="cal-head"><div class="cal-title">Calendario</div>
+      <div class="cal-sub">${played}/16 jugados · ronda eliminatoria</div></div>
+    <div class="cal-grid">${cards}</div>`;
+}
+
 function renderHeader(){
   const played=PRED.matches.filter(m=>{const r=resultFor(m.id);return r&&r.status==="FINISHED"&&r.g1!=null;}).length;
   document.getElementById("progress").innerHTML=`<b>${played}</b> / 16 partidos`;
   document.getElementById("updated").textContent="Actualizado "+relTime(RES.lastUpdated);
+
+  // Último (most recent finished match)
+  const lr=document.getElementById("lastResult");
+  const lastId=RES.lastFinishedId, lm=lastId&&PRED.matches.find(x=>x.id===lastId), lres=lastId&&resultFor(lastId);
+  if(lm&&lres&&lres.g1!=null){
+    const tie=lres.g1===lres.g2&&lres.adv;
+    lr.hidden=false;
+    lr.innerHTML=`Último: <b class="lastgame">${flag(lm.team1)} ${esc(lm.team1)} <span class="sc">${lres.g1}–${lres.g2}</span> ${esc(lm.team2)} ${flag(lm.team2)}</b>${tie?`<span class="pentag">PEN ${esc(lres.adv)}</span>`:""}`;
+  } else lr.hidden=true;
+
+  // Próximo (next scheduled match)
+  const nx=document.getElementById("nextMatch");
+  const nextId=RES.nextMatchId, nm=nextId&&PRED.matches.find(x=>x.id===nextId), nres=nextId&&resultFor(nextId);
+  if(nm){
+    nx.hidden=false;
+    nx.innerHTML=`Próximo: <b class="lastgame">${flag(nm.team1)} ${esc(nm.team1)} vs ${esc(nm.team2)} ${flag(nm.team2)}</b>${nres&&nres.utcDate?` <span class="sc">· ${esc(fxWhen(nres.utcDate))}</span>`:""}`;
+  } else nx.hidden=true;
+
+  renderCalendar();
 }
 
 async function tick(){
