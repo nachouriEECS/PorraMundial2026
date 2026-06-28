@@ -104,18 +104,21 @@
   .side{display:flex;flex:1;min-width:0}
   .side.right{flex-direction:row-reverse}
   .rnd{display:flex;flex-direction:column;justify-content:space-around;gap:8px;flex:1;min-width:0}
-  .rnd.r32{flex:1.7}
+  /* r32 boxes are natural height and the leftover space becomes even gaps, so
+     taller boxes (penalty line / real result) don't crowd their neighbours. */
+  .rnd.r32{flex:1.7;justify-content:space-between;gap:12px}
   .rnd.empty{flex:.7}
-  .cell{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+  .cell{display:flex;flex-direction:column;justify-content:center;min-width:0}
   .ghost{flex:1;display:flex;align-items:center;justify-content:center}
   .ghost b{width:80%;max-width:74px;height:clamp(26px,4vh,40px);border:1px dashed #2c382f;border-radius:8px;
      background:rgba(255,255,255,.012)}
 
   /* match box */
-  .mb{position:relative;display:flex;align-items:stretch;flex:none;border:1px solid var(--line);
-     border-radius:10px;background:var(--bg-2);transition:border-color .15s}
+  .mb{position:relative;display:flex;align-items:stretch;flex:none;min-height:74px;
+     border:1px solid var(--line);border-radius:10px;background:var(--bg-2);transition:border-color .15s}
   .side.right .mb{direction:ltr}
-  .mb .teams{position:relative;flex:1;min-width:0;padding:7px 9px}
+  .mb .teams{position:relative;flex:1;min-width:0;padding:7px 9px;
+     display:flex;flex-direction:column;justify-content:center}
   .mb .tm{position:relative;display:flex;align-items:center;gap:6px;font-size:12.5px;line-height:1.35;min-width:0}
   .mb .tm .fl{font-size:13px;flex:none}
   .mb .tm .nm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink-dim)}
