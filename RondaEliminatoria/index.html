@@ -15,11 +15,11 @@
     --line:#26312b; --ink:#eef3ef; --ink-dim:#9fb0a6; --ink-faint:#5f6f66;
     --green:#21d07a; --green-deep:#0e7a45; --red:#ec4a4a; --grey:#566159;
     --gold:#f6c945; --gold-deep:#8a6a10;
-    /* 0-3 points scale */
-    --p0:#b3473f; --p0-bg:rgba(236,74,74,.13);
-    --p1:#e0a838; --p1-bg:rgba(246,201,69,.13);
-    --p2:#2fb56e; --p2-bg:rgba(33,208,122,.13);
-    --p3:#27e389; --p3-bg:rgba(39,227,137,.20);
+    /* 0-3 points scale — four distinct hues: red · amber · lime · green */
+    --p0:#e0564c; --p0-bg:rgba(224,86,76,.14);
+    --p1:#eaa033; --p1-bg:rgba(234,160,51,.15);
+    --p2:#bcd63e; --p2-bg:rgba(188,214,62,.16);
+    --p3:#18dd7a; --p3-bg:rgba(24,221,122,.24);
     --shadow:0 10px 30px -12px rgba(0,0,0,.7);
   }
   *{box-sizing:border-box}
@@ -120,12 +120,11 @@
   .mb .tm .fl{font-size:13px;flex:none}
   .mb .tm .nm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink-dim)}
   .mb .tm .gl{font-family:'Spline Sans Mono',monospace;font-weight:700;font-size:13.5px;color:var(--ink-faint);flex:none;padding-left:6px}
-  .mb .tm.adv .nm{color:var(--ink);font-weight:600}
+  .mb .tm.adv .nm{color:var(--ink);font-weight:700}
   .mb .tm.adv .gl{color:var(--ink)}
   .mb .tm.adv{color:var(--ink-dim)}
-  .mb .tm.adv::before{content:"";position:absolute;left:-9px;top:50%;transform:translateY(-50%);
-     width:3px;height:15px;border-radius:0 3px 3px 0;background:currentColor;opacity:.6}
-  .mb.scored .tm.adv{color:inherit}
+  /* green caret marks the team the player has advancing */
+  .mb .passmark{flex:none;color:var(--green);font-weight:700;font-size:11px;width:9px;text-align:center;margin-left:-2px}
   /* points column (right edge) — always visible, never covers the score */
   .mb .pcol{flex:none;width:30px;display:flex;align-items:center;justify-content:center;
      font-family:'Spline Sans Mono',monospace;font-weight:700;font-size:15px;
@@ -136,7 +135,7 @@
   .mb.p1{border-color:var(--p1);background:linear-gradient(180deg,var(--p1-bg),var(--bg-2))}
   .mb.p1 .pcol{background:var(--p1);color:#2a1f04;border-left-color:var(--p1)}
   .mb.p2{border-color:var(--p2);background:linear-gradient(180deg,var(--p2-bg),var(--bg-2))}
-  .mb.p2 .pcol{background:var(--p2);color:#04240f;border-left-color:var(--p2)}
+  .mb.p2 .pcol{background:var(--p2);color:#26300a;border-left-color:var(--p2)}
   .mb.p3{border-color:var(--p3);background:linear-gradient(180deg,var(--p3-bg),var(--bg-2));box-shadow:0 0 14px rgba(39,227,137,.28)}
   .mb.p3 .pcol{background:var(--p3);color:#04240f;border-left-color:var(--p3)}
   .mb.nopick{border-style:dashed;opacity:.6}
@@ -144,6 +143,15 @@
   .mb .res{font-family:'Spline Sans Mono',monospace;font-size:10px;color:var(--ink-faint);
      margin-top:4px;letter-spacing:.04em}
   .mb .res b{color:var(--green)}
+  /* who the player has advancing (especially important on penalty ties) */
+  .mb .passline{display:flex;align-items:center;gap:4px;font-family:'Spline Sans Mono',monospace;
+     font-size:10px;color:var(--ink-dim);margin-top:5px;padding-top:5px;border-top:1px dashed var(--line);
+     white-space:nowrap;overflow:hidden}
+  .mb .passline .lab{color:var(--green);font-weight:700;flex:none}
+  .mb .passline .who{color:var(--ink);font-weight:600;overflow:hidden;text-overflow:ellipsis}
+  .pentag{flex:none;font-family:'Spline Sans Mono',monospace;font-size:8.5px;font-weight:700;
+     letter-spacing:.08em;background:rgba(246,201,69,.16);color:var(--gold);border:1px solid var(--gold-deep);
+     border-radius:4px;padding:1px 4px;margin-left:2px}
 
   /* center card */
   .center{display:flex;align-items:center;justify-content:center;flex:.001;padding:0 4px}
@@ -199,8 +207,8 @@
   th.xmatch{position:sticky;left:0;z-index:2;background:var(--bg-2);color:var(--ink-dim);text-align:left;font-weight:600}
   td.xres{font-weight:700;color:var(--green)}
   td.x{color:var(--ink-dim);font-weight:600}
-  td.x.p0{background:var(--p0-bg);color:#ffb4b4} td.x.p1{background:var(--p1-bg);color:#ffe09a}
-  td.x.p2{background:var(--p2-bg);color:#8ef0bb} td.x.p3{background:var(--p3-bg);color:#acffd4}
+  td.x.p0{background:var(--p0-bg);color:#ffb4b4} td.x.p1{background:var(--p1-bg);color:#ffd98f}
+  td.x.p2{background:var(--p2-bg);color:#e3f59a} td.x.p3{background:var(--p3-bg);color:#7dffc0}
   td.x.nopick{color:var(--ink-faint)}
 
   footer{color:var(--ink-faint);font-size:12px;text-align:center;padding:18px 0 28px;line-height:1.6}
@@ -335,15 +343,25 @@ function matchBox(m, cell){
   else { cls+=" scored p"+pts; pcol='<div class="pcol">'+pts+'</div>'; }
   const g1 = pred? pred.g1 : "–", g2 = pred? pred.g2 : "–";
   const adv1 = pred && pred.adv===m.team1, adv2 = pred && pred.adv===m.team2;
+  const mark = on => `<span class="passmark"${on?'':' style="visibility:hidden"'}>▸</span>`;
+
+  // The player's predicted advancer, spelled out. A tie means it's decided on
+  // penalties, so flag that explicitly (this was the ambiguous case).
+  let passLine = "";
+  if(pred && pred.adv){
+    const tiePen = pred.g1===pred.g2;
+    passLine = `<div class="passline"><span class="lab">▸ Pasa</span><span class="who">${esc(cname(pred.adv))}</span>${tiePen?'<span class="pentag">PENALTIS</span>':''}</div>`;
+  }
   let resLine="";
   if(res && res.status==="FINISHED" && res.g1!=null){
     const w = res.adv ? cname(res.adv) : "";
-    resLine = `<div class="res">real <b>${res.g1}-${res.g2}</b>${w?` · pasa ${esc(w)}`:""}</div>`;
+    const tie = res.g1===res.g2;
+    resLine = `<div class="res">real <b>${res.g1}-${res.g2}</b>${w?` · pasa ${esc(w)}`:""}${tie&&w?' <span class="pentag">PEN</span>':''}</div>`;
   }
   return `<div class="${cls}"><div class="teams">
-    <div class="tm${adv1?" adv":""}"><span class="fl">${flag(m.team1)}</span><span class="nm">${esc(cname(m.team1))}</span><span class="gl">${g1}</span></div>
-    <div class="tm${adv2?" adv":""}"><span class="fl">${flag(m.team2)}</span><span class="nm">${esc(cname(m.team2))}</span><span class="gl">${g2}</span></div>
-    ${resLine}</div>${pcol}</div>`;
+    <div class="tm${adv1?" adv":""}">${mark(adv1)}<span class="fl">${flag(m.team1)}</span><span class="nm">${esc(cname(m.team1))}</span><span class="gl">${g1}</span></div>
+    <div class="tm${adv2?" adv":""}">${mark(adv2)}<span class="fl">${flag(m.team2)}</span><span class="nm">${esc(cname(m.team2))}</span><span class="gl">${g2}</span></div>
+    ${passLine}${resLine}</div>${pcol}</div>`;
 }
 
 function ghostRound(n){
