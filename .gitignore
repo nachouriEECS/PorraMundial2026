@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 .token
 *.env
+# Source spreadsheets are kept locally; only the generated JSON is committed.
+*.xlsx
+~$*

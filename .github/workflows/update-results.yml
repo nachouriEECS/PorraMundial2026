@@ -30,19 +30,22 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Fetch results
+      # The group stage is over and its results are final (frozen in
+      # data/results.json), so we no longer call the API for it. Only the
+      # Round-of-32 results are fetched now.
+      - name: Fetch Round-of-32 results
         env:
           FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
-        run: python3 scripts/fetch_results.py
+        run: python3 scripts/fetch_results_r32.py
 
       - name: Commit if changed
         run: |
           git config user.name  "porra-bot"
           git config user.email "porra-bot@users.noreply.github.com"
-          if ! git diff --quiet -- data/results.json; then
-            git add data/results.json
+          git add RondaEliminatoria/data/results.json
+          if ! git diff --cached --quiet; then
             git commit -m "Update results ($(date -u '+%Y-%m-%d %H:%M UTC'))"
             git push
           else
-            echo "No changes to results.json."
+            echo "No changes to results."
           fi

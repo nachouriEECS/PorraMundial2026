@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Porra Mundial 2026 · Ronda Eliminatoria</title>
+<meta name="description" content="Pronósticos de la ronda eliminatoria (octavos de 32) de la porra del Mundial 2026">
+<meta name="theme-color" content="#0a0e0c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Spline+Sans+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e0c; --bg-2:#0f1512; --panel:#141b17; --panel-2:#1a231e;
+    --line:#26312b; --ink:#eef3ef; --ink-dim:#9fb0a6; --ink-faint:#5f6f66;
+    --green:#21d07a; --green-deep:#0e7a45; --red:#ec4a4a; --grey:#566159;
+    --gold:#f6c945; --gold-deep:#8a6a10;
+    /* 0-3 points scale */
+    --p0:#b3473f; --p0-bg:rgba(236,74,74,.13);
+    --p1:#e0a838; --p1-bg:rgba(246,201,69,.13);
+    --p2:#2fb56e; --p2-bg:rgba(33,208,122,.13);
+    --p3:#27e389; --p3-bg:rgba(39,227,137,.20);
+    --shadow:0 10px 30px -12px rgba(0,0,0,.7);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1200px 600px at 50% -10%, rgba(33,208,122,.10), transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, rgba(246,201,69,.06), transparent 55%),
+      repeating-linear-gradient(180deg, transparent 0 38px, rgba(255,255,255,.012) 38px 76px),
+      var(--bg);
+    color:var(--ink); font-family:'Archivo',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased; min-height:100vh;
+    padding:0 14px env(safe-area-inset-bottom);
+  }
+  .wrap{max-width:1320px;margin:0 auto}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:20;margin:0 -14px 0;padding:16px 16px 14px;
+    background:linear-gradient(180deg, rgba(10,14,12,.96), rgba(10,14,12,.82));
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  }
+  .titlerow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  h1{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(24px,6vw,40px);
+     line-height:.92;letter-spacing:.5px;margin:0;text-transform:uppercase}
+  h1 .em{color:var(--green)}
+  h1 small{display:block;font-family:'Spline Sans Mono',monospace;font-size:12px;
+     letter-spacing:.18em;color:var(--ink-dim);margin-top:6px;text-transform:uppercase}
+  .badge{font-family:'Spline Sans Mono',monospace;font-weight:600;font-size:11px;
+     letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--green);
+     padding:5px 9px;border-radius:999px;white-space:nowrap}
+  .navlink{font-family:'Spline Sans Mono',monospace;font-size:12px;color:var(--ink-dim);
+     text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 11px}
+  .navlink:hover{border-color:var(--green);color:var(--green)}
+  .substrip{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .chip{display:inline-flex;align-items:center;gap:8px;background:var(--panel);
+     border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--ink-dim)}
+  .chip b{color:var(--ink);font-weight:600}
+  .chip .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(33,208,122,.55)}70%{box-shadow:0 0 0 7px rgba(33,208,122,0)}100%{box-shadow:0 0 0 0 rgba(33,208,122,0)}}
+
+  /* ---------- Layout ---------- */
+  .layout{display:grid;grid-template-columns:1fr;gap:16px;align-items:start;margin-top:14px}
+  @media(min-width:1040px){.layout{grid-template-columns:248px minmax(0,1fr)}}
+
+  /* ---------- Leaderboard ---------- */
+  .board-wrap{background:linear-gradient(180deg,var(--panel),var(--panel-2));
+     border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+  @media(min-width:1040px){.board-wrap{position:sticky;top:96px;max-height:calc(100vh - 112px);overflow:auto}}
+  .board-title{font-family:'Anton',sans-serif;font-size:18px;letter-spacing:.5px;
+     text-transform:uppercase;padding:13px 15px 9px}
+  ol.board{list-style:none;margin:0;padding:0 8px 10px;display:flex;flex-direction:column;gap:5px}
+  .pl{display:grid;grid-template-columns:26px 1fr auto;align-items:center;gap:9px;
+     padding:9px 10px;border-radius:11px;border:1px solid transparent;cursor:pointer;
+     background:transparent;text-align:left;width:100%;color:inherit;font:inherit}
+  .pl:hover{background:var(--panel-2);border-color:var(--line)}
+  .pl.sel{background:rgba(33,208,122,.10);border-color:var(--green-deep)}
+  .pl .rk{font-family:'Anton',sans-serif;font-size:18px;color:var(--ink-faint);text-align:center;line-height:1}
+  .pl.sel .rk{color:var(--green)}
+  .pl .nm{font-weight:600;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pl .tp{font-family:'Spline Sans Mono',monospace;font-weight:700;font-size:15px;color:var(--ink)}
+  .pl.sel .tp{color:var(--green)}
+  .pl.r1 .rk{color:var(--gold)} .pl.r1 .nm::after{content:" ★";color:var(--gold);font-size:11px}
+
+  /* ---------- Bracket ---------- */
+  .stage{background:
+       radial-gradient(680px 380px at 50% 42%, rgba(33,208,122,.05), transparent 70%),
+       linear-gradient(180deg,var(--panel),var(--panel-2));
+     border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);
+     padding:16px 14px;overflow:hidden}
+  .legend{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:2px 4px 14px;
+     font-size:12px;color:var(--ink-faint)}
+  .legend .swatch{display:inline-flex;align-items:center;gap:6px}
+  .legend i{width:13px;height:13px;border-radius:4px;border:1px solid var(--line);display:inline-block}
+  .legend i.l0{background:var(--p0-bg);border-color:var(--p0)}
+  .legend i.l1{background:var(--p1-bg);border-color:var(--p1)}
+  .legend i.l2{background:var(--p2-bg);border-color:var(--p2)}
+  .legend i.l3{background:var(--p3-bg);border-color:var(--p3)}
+  .legend .sep{flex:1}
+
+  .bracket{display:flex;align-items:stretch;justify-content:center;gap:6px}
+  .side{display:flex;flex:1;min-width:0}
+  .side.right{flex-direction:row-reverse}
+  .rnd{display:flex;flex-direction:column;justify-content:space-around;gap:8px;flex:1;min-width:0}
+  .rnd.r32{flex:1.7}
+  .rnd.empty{flex:.7}
+  .cell{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+  .ghost{flex:1;display:flex;align-items:center;justify-content:center}
+  .ghost b{width:80%;max-width:74px;height:clamp(26px,4vh,40px);border:1px dashed #2c382f;border-radius:8px;
+     background:rgba(255,255,255,.012)}
+
+  /* match box */
+  .mb{position:relative;display:flex;align-items:stretch;border:1px solid var(--line);
+     border-radius:10px;background:var(--bg-2);overflow:hidden;transition:border-color .15s}
+  .side.right .mb{direction:ltr}
+  .mb .teams{position:relative;flex:1;min-width:0;padding:7px 9px}
+  .mb .tm{position:relative;display:flex;align-items:center;gap:6px;font-size:12.5px;line-height:1.35;min-width:0}
+  .mb .tm .fl{font-size:13px;flex:none}
+  .mb .tm .nm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink-dim)}
+  .mb .tm .gl{font-family:'Spline Sans Mono',monospace;font-weight:700;font-size:13.5px;color:var(--ink-faint);flex:none;padding-left:6px}
+  .mb .tm.adv .nm{color:var(--ink);font-weight:600}
+  .mb .tm.adv .gl{color:var(--ink)}
+  .mb .tm.adv{color:var(--ink-dim)}
+  .mb .tm.adv::before{content:"";position:absolute;left:-9px;top:50%;transform:translateY(-50%);
+     width:3px;height:15px;border-radius:0 3px 3px 0;background:currentColor;opacity:.6}
+  .mb.scored .tm.adv{color:inherit}
+  /* points column (right edge) — always visible, never covers the score */
+  .mb .pcol{flex:none;width:30px;display:flex;align-items:center;justify-content:center;
+     font-family:'Spline Sans Mono',monospace;font-weight:700;font-size:15px;
+     border-left:1px solid var(--line);color:var(--ink-faint)}
+  /* color scales by points */
+  .mb.p0{border-color:var(--p0);background:linear-gradient(180deg,var(--p0-bg),var(--bg-2))}
+  .mb.p0 .pcol{background:var(--p0);color:#2a0606;border-left-color:var(--p0)}
+  .mb.p1{border-color:var(--p1);background:linear-gradient(180deg,var(--p1-bg),var(--bg-2))}
+  .mb.p1 .pcol{background:var(--p1);color:#2a1f04;border-left-color:var(--p1)}
+  .mb.p2{border-color:var(--p2);background:linear-gradient(180deg,var(--p2-bg),var(--bg-2))}
+  .mb.p2 .pcol{background:var(--p2);color:#04240f;border-left-color:var(--p2)}
+  .mb.p3{border-color:var(--p3);background:linear-gradient(180deg,var(--p3-bg),var(--bg-2));box-shadow:0 0 14px rgba(39,227,137,.28)}
+  .mb.p3 .pcol{background:var(--p3);color:#04240f;border-left-color:var(--p3)}
+  .mb.nopick{border-style:dashed;opacity:.6}
+  .mb.nopick .pcol{display:none}
+  .mb .res{font-family:'Spline Sans Mono',monospace;font-size:10px;color:var(--ink-faint);
+     margin-top:4px;letter-spacing:.04em}
+  .mb .res b{color:var(--green)}
+
+  /* center card */
+  .center{display:flex;align-items:center;justify-content:center;flex:.001;padding:0 4px}
+  .ccard{width:min(190px,40vw);text-align:center;padding:16px 14px;border-radius:16px;
+     border:1px solid var(--green-deep);background:
+       radial-gradient(120px 80px at 50% 0%, rgba(33,208,122,.18), transparent 70%),
+       linear-gradient(180deg,#16201a,#121913);box-shadow:0 14px 40px -16px rgba(0,0,0,.8)}
+  .ccard .trophy{font-size:26px;line-height:1}
+  .ccard .who{font-family:'Anton',sans-serif;font-size:clamp(18px,2.4vw,26px);letter-spacing:.4px;
+     text-transform:uppercase;margin:8px 0 2px;line-height:1}
+  .ccard .rkline{font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--ink-faint);
+     letter-spacing:.1em;text-transform:uppercase}
+  .ccard .total{font-family:'Anton',sans-serif;font-size:46px;line-height:.9;color:var(--green);margin-top:10px}
+  .ccard .total small{display:block;font-family:'Archivo';font-weight:600;font-size:10px;
+     letter-spacing:.2em;color:var(--ink-faint);text-transform:uppercase;margin-top:3px}
+  .ccard .maxline{font-size:10.5px;color:var(--ink-faint);margin-top:8px}
+
+  /* mobile stacked bracket */
+  .mstack{display:none}
+  @media(max-width:860px){
+    .bracket{display:none}
+    .mstack{display:block}
+    .mcard{margin:0 2px 14px}
+    .mcol-title{font-family:'Spline Sans Mono',monospace;font-size:11px;font-weight:700;
+       letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin:14px 4px 8px}
+    .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .mgrid .mb{min-height:62px}
+  }
+  @media(max-width:430px){.mgrid{grid-template-columns:1fr}}
+
+  /* ---------- Excel popup ---------- */
+  .excel-wrap{margin:22px 2px 8px}
+  .excel-toggle{display:inline-flex;align-items:center;gap:10px;cursor:pointer;
+     font-family:'Spline Sans Mono',monospace;font-weight:600;font-size:13px;letter-spacing:.04em;
+     color:var(--ink);background:linear-gradient(180deg,var(--panel),var(--panel-2));
+     border:1px solid var(--line);border-radius:12px;padding:11px 16px;box-shadow:var(--shadow)}
+  .excel-toggle:hover{border-color:var(--green);color:var(--green)}
+  .excel-toggle .xicon{color:var(--green);font-size:15px;line-height:1}
+  .excel-toggle .chev{font-size:11px;color:var(--ink-faint);transition:transform .2s ease}
+  .excel-toggle.open .chev{transform:rotate(90deg);color:var(--green)}
+  .excel-toggle:hover .chev{color:var(--green)}
+  .excel-panel{margin-top:12px;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+     box-shadow:var(--shadow);animation:bfade .28s ease}
+  @keyframes bfade{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+  .xhint{font-size:11.5px;color:var(--ink-faint);padding:9px 14px;border-bottom:1px solid var(--line);background:var(--bg-2)}
+  .xscroll{overflow:auto;max-height:78vh;-webkit-overflow-scrolling:touch}
+  table.xls{border-collapse:separate;border-spacing:0;font-family:'Spline Sans Mono',monospace;
+     font-size:12px;white-space:nowrap;width:max-content;min-width:100%}
+  table.xls th,table.xls td{border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+     padding:6px 9px;text-align:center}
+  table.xls thead th{position:sticky;top:0;z-index:3;background:var(--panel-2);color:var(--ink);font-weight:600;font-size:11.5px}
+  table.xls thead th.xcorner{left:0;z-index:5;text-align:left;color:var(--green)}
+  th.xmatch{position:sticky;left:0;z-index:2;background:var(--bg-2);color:var(--ink-dim);text-align:left;font-weight:600}
+  td.xres{font-weight:700;color:var(--green)}
+  td.x{color:var(--ink-dim);font-weight:600}
+  td.x.p0{background:var(--p0-bg);color:#ffb4b4} td.x.p1{background:var(--p1-bg);color:#ffe09a}
+  td.x.p2{background:var(--p2-bg);color:#8ef0bb} td.x.p3{background:var(--p3-bg);color:#acffd4}
+  td.x.nopick{color:var(--ink-faint)}
+
+  footer{color:var(--ink-faint);font-size:12px;text-align:center;padding:18px 0 28px;line-height:1.6}
+  footer a{color:var(--ink-dim)}
+  .empty{padding:40px 16px;text-align:center;color:var(--ink-dim);font-size:15px}
+  .err{color:var(--red)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="titlerow">
+      <h1>Porra <span class="em">Mundial</span> 2026<small>Ronda Eliminatoria · Pronósticos</small></h1>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <a class="navlink" href="../">← Fase de grupos</a>
+        <span class="badge"><span class="dot" style="display:inline-block;margin-right:5px"></span>En directo</span>
+      </div>
+    </div>
+    <div class="substrip">
+      <span class="chip" id="progress">— / 16 partidos</span>
+      <span class="chip" id="updated">Cargando…</span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <div class="board-wrap">
+      <div class="board-title">Clasificación</div>
+      <ol class="board" id="board"><li class="empty">Cargando…</li></ol>
+    </div>
+
+    <div class="stage">
+      <div class="legend">
+        <span>Puntos por partido:</span>
+        <span class="swatch"><i class="l0"></i>0</span>
+        <span class="swatch"><i class="l1"></i>1</span>
+        <span class="swatch"><i class="l2"></i>2</span>
+        <span class="swatch"><i class="l3"></i>3</span>
+        <span class="sep"></span>
+        <span style="color:var(--ink-faint)">1 acertar quién pasa · +1 goles local · +1 goles visitante</span>
+      </div>
+      <div id="bracket" class="bracket"></div>
+      <div id="mstack" class="mstack"></div>
+    </div>
+  </div>
+
+  <div class="excel-wrap">
+    <button class="excel-toggle" id="excelToggle" aria-expanded="false" aria-controls="excelPanel">
+      <span class="xicon">▦</span><span>Resultados Formato Excel</span><span class="chev">▶</span>
+    </button>
+    <div class="excel-panel" id="excelPanel" hidden></div>
+  </div>
+
+  <footer>
+    Porra del Mundial 2026 · Ronda eliminatoria · 0–3 puntos por partido.<br>
+    1 punto por acertar quién pasa · +1 por los goles de cada equipo (resultado exacto = 3).<br>
+    La clasificación suma los puntos de la <a href="../">fase de grupos</a> + la ronda eliminatoria.<br>
+    Resultados vía <a href="https://www.football-data.org">football-data.org</a>.
+  </footer>
+</div>
+
+<script>
+let PRED=null, RES=null, CODES=null, NAMES=null;
+let GPRED=null, GRES=null, BASE={};   // group-stage predictions/results -> base points
+let selected=null;
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+async function getJSON(url){
+  const r = await fetch(url+(url.includes("?")?"&":"?")+"t="+Date.now(),{cache:"no-store"});
+  if(!r.ok) throw new Error(url+" → "+r.status);
+  return r.json();
+}
+function flag(c){return (CODES[c]&&CODES[c].flag)||"";}
+function cname(c){return (NAMES&&NAMES[c])||(CODES[c]&&CODES[c].name)||c;}
+function relTime(iso){
+  if(!iso) return "sin resultados aún";
+  const d=new Date(iso),s=Math.round((Date.now()-d)/1000);
+  if(s<60)return "hace un momento"; if(s<3600)return "hace "+Math.floor(s/60)+" min";
+  if(s<86400)return "hace "+Math.floor(s/3600)+" h";
+  return d.toLocaleDateString("es-ES",{day:"numeric",month:"short"});
+}
+
+// 0-3 points for one prediction vs one result (null = not scorable yet).
+function pointsFor(pred,res){
+  if(!pred) return null;                 // no pick
+  if(!res || res.status!=="FINISHED" || res.g1==null) return null;  // pending
+  let p=0;
+  if(pred.adv && res.adv && pred.adv===res.adv) p++;
+  if(pred.g1===res.g1) p++;
+  if(pred.g2===res.g2) p++;
+  return p;
+}
+function resultFor(mid){return (RES.matches&&RES.matches[mid])||null;}
+
+// Base points carried over from the group stage (1 pt per correct 1/X/2).
+function computeBase(){
+  BASE={};
+  for(const p of PRED.players) BASE[p]=0;
+  if(!GPRED || !GRES) return;
+  for(const m of GPRED.matches){
+    const o=(GRES.matches[m.id]||{}).outcome;
+    if(o==null) continue;
+    for(const p of GPRED.players){
+      if(BASE[p]!=null && (GPRED.predictions[m.id]||{})[p]===o) BASE[p]++;
+    }
+  }
+}
+
+function standings(){
+  const rows = PRED.players.map(name=>{
+    let r32=0; const cells={};
+    for(const m of PRED.matches){
+      const pred = (PRED.predictions[m.id]||{})[name] || null;
+      const pts = pointsFor(pred, resultFor(m.id));
+      if(pts!=null) r32+=pts;
+      cells[m.id]={pred,pts};
+    }
+    const base = BASE[name]||0;
+    return {name, base, r32, total:base+r32, cells};
+  });
+  rows.sort((a,b)=> b.total-a.total || a.name.localeCompare(b.name,"es"));
+  rows.forEach((r,i)=>r.rank=i+1);
+  return rows;
+}
+
+// One match box for the bracket / stacked view.
+function matchBox(m, cell){
+  const pred = cell.pred, pts = cell.pts;
+  const res = resultFor(m.id);
+  let cls="mb", pcol;
+  if(!pred){ cls+=" nopick"; pcol='<div class="pcol"></div>'; }
+  else if(pts==null){ cls+=" pending"; pcol='<div class="pcol">·</div>'; }
+  else { cls+=" scored p"+pts; pcol='<div class="pcol">'+pts+'</div>'; }
+  const g1 = pred? pred.g1 : "–", g2 = pred? pred.g2 : "–";
+  const adv1 = pred && pred.adv===m.team1, adv2 = pred && pred.adv===m.team2;
+  let resLine="";
+  if(res && res.status==="FINISHED" && res.g1!=null){
+    const w = res.adv ? cname(res.adv) : "";
+    resLine = `<div class="res">real <b>${res.g1}-${res.g2}</b>${w?` · pasa ${esc(w)}`:""}</div>`;
+  }
+  return `<div class="${cls}"><div class="teams">
+    <div class="tm${adv1?" adv":""}"><span class="fl">${flag(m.team1)}</span><span class="nm">${esc(cname(m.team1))}</span><span class="gl">${g1}</span></div>
+    <div class="tm${adv2?" adv":""}"><span class="fl">${flag(m.team2)}</span><span class="nm">${esc(cname(m.team2))}</span><span class="gl">${g2}</span></div>
+    ${resLine}</div>${pcol}</div>`;
+}
+
+function ghostRound(n){
+  let c=""; for(let i=0;i<n;i++) c+=`<div class="ghost"><b></b></div>`;
+  return `<div class="rnd empty">${c}</div>`;
+}
+function r32Round(side, row){
+  const ms = PRED.matches.filter(m=>m.side===side).sort((a,b)=>a.pos-b.pos);
+  let c=""; for(const m of ms) c+=`<div class="cell">${matchBox(m,row.cells[m.id])}</div>`;
+  return `<div class="rnd r32">${c}</div>`;
+}
+
+function renderBracket(row){
+  const left = `<div class="side left">${r32Round("left",row)}${ghostRound(4)}${ghostRound(2)}</div>`;
+  const right= `<div class="side right">${r32Round("right",row)}${ghostRound(4)}${ghostRound(2)}</div>`;
+  const max = PRED.matches.length*3;
+  const center = `<div class="center"><div class="ccard">
+      <div class="trophy">🏆</div>
+      <div class="who">${esc(row.name)}</div>
+      <div class="rkline">${row.rank}º de ${PRED.players.length}</div>
+      <div class="total">${row.total}<small>puntos</small></div>
+      <div class="maxline">Grupos ${row.base} · Eliminatoria ${row.r32}/${max}</div>
+    </div></div>`;
+  document.getElementById("bracket").innerHTML = left + center + right;
+
+  // mobile stacked
+  const grp = side => PRED.matches.filter(m=>m.side===side).sort((a,b)=>a.pos-b.pos)
+      .map(m=>matchBox(m,row.cells[m.id])).join("");
+  document.getElementById("mstack").innerHTML = `
+    <div class="mcard ccard" style="width:auto;max-width:none">
+      <div class="who">${esc(row.name)}</div>
+      <div class="rkline">${row.rank}º de ${PRED.players.length}</div>
+      <div class="total">${row.total}<small>puntos</small></div>
+      <div class="maxline">Grupos ${row.base} · Eliminatoria ${row.r32}/${max}</div>
+    </div>
+    <div class="mcol-title">Lado izquierdo</div><div class="mgrid">${grp("left")}</div>
+    <div class="mcol-title">Lado derecho</div><div class="mgrid">${grp("right")}</div>`;
+}
+
+function renderBoard(rows){
+  const el=document.getElementById("board"); el.innerHTML="";
+  for(const r of rows){
+    const b=document.createElement("button");
+    b.className="pl"+(r.rank<=1?" r1":"")+(r.name===selected?" sel":"");
+    b.innerHTML=`<span class="rk">${r.rank}</span><span class="nm">${esc(r.name)}</span><span class="tp">${r.total}</span>`;
+    b.addEventListener("click",()=>{selected=r.name; rerender();});
+    el.appendChild(b);
+  }
+}
+
+function renderExcel(rows){
+  const panel=document.getElementById("excelPanel");
+  let head=`<tr><th class="xcorner">Partido</th><th>Real</th>`;
+  for(const r of rows) head+=`<th>${esc(r.name)}</th>`;
+  head+=`</tr>`;
+  let body="";
+  for(const m of PRED.matches){
+    const res=resultFor(m.id);
+    const rsc = res&&res.status==="FINISHED"&&res.g1!=null ? `${res.g1}-${res.g2}` : "—";
+    body+=`<tr><th class="xmatch" title="${esc(cname(m.team1))} vs ${esc(cname(m.team2))}">${esc(m.team1)} - ${esc(m.team2)}</th><td class="xres">${rsc}</td>`;
+    for(const r of rows){
+      const cell=r.cells[m.id], pred=cell.pred;
+      if(!pred){ body+=`<td class="x nopick">—</td>`; continue; }
+      const cls = cell.pts==null ? "" : "p"+cell.pts;
+      const advTag = pred.adv && pred.g1===pred.g2 ? ` (${pred.adv})` : "";
+      body+=`<td class="x ${cls}">${pred.g1}-${pred.g2}${advTag}</td>`;
+    }
+    body+=`</tr>`;
+  }
+  panel.innerHTML=`<div class="xhint">Cada casilla es el pronóstico (goles local-visitante; entre paréntesis quién pasa en empate). Verde intenso = 3 pts (resultado exacto), verde = 2, ámbar = 1, rojo = 0.</div>
+    <div class="xscroll"><table class="xls"><thead>${head}</thead><tbody>${body}</tbody></table></div>`;
+}
+
+function rerender(){
+  const rows=standings();
+  if(!selected || !rows.find(r=>r.name===selected)) selected=rows[0].name;
+  const sel=rows.find(r=>r.name===selected);
+  renderBoard(rows);
+  renderBracket(sel);
+  renderExcel(rows);
+}
+
+function renderHeader(){
+  const played=PRED.matches.filter(m=>{const r=resultFor(m.id);return r&&r.status==="FINISHED"&&r.g1!=null;}).length;
+  document.getElementById("progress").innerHTML=`<b>${played}</b> / 16 partidos`;
+  document.getElementById("updated").textContent="Actualizado "+relTime(RES.lastUpdated);
+}
+
+async function tick(){
+  try{
+    RES=await getJSON("data/results.json");
+    try{ GRES=await getJSON("../data/results.json"); }catch(e){ console.warn("group results unavailable", e); }
+    computeBase();
+    renderHeader(); rerender();
+  }catch(e){ document.getElementById("updated").innerHTML=`<span class="err">Error al cargar resultados</span>`; console.error(e); }
+}
+
+(function(){
+  const btn=document.getElementById("excelToggle"), panel=document.getElementById("excelPanel");
+  btn.addEventListener("click",()=>{const open=panel.hidden;panel.hidden=!open;btn.classList.toggle("open",open);btn.setAttribute("aria-expanded",open);});
+})();
+
+(async function init(){
+  try{
+    [PRED,CODES]=await Promise.all([getJSON("data/predictions.json"), getJSON("../data/team-codes.json")]);
+    NAMES=PRED.names||{};
+    try{ GPRED=await getJSON("../data/predictions.json"); }catch(e){ console.warn("group predictions unavailable", e); }
+  }catch(e){
+    document.getElementById("board").innerHTML=`<li class="empty err">No se pudieron cargar los datos (${esc(e.message)}).</li>`;
+    return;
+  }
+  await tick();
+  setInterval(tick, 3*60*1000);
+  document.addEventListener("visibilitychange",()=>{if(!document.hidden)tick();});
+})();
+</script>
+</body>
+</html>

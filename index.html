@@ -69,6 +69,9 @@
     font-size:11px;letter-spacing:.12em;text-transform:uppercase;
     color:var(--bg);background:var(--green);padding:5px 9px;border-radius:999px;white-space:nowrap;
   }
+  .navlink{font-family:'Spline Sans Mono',monospace;font-size:12px;color:var(--ink-dim);
+    text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 11px;white-space:nowrap}
+  .navlink:hover{border-color:var(--green);color:var(--green)}
   .substrip{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
   .chip{
     display:inline-flex;align-items:center;gap:8px;
@@ -204,7 +207,10 @@
   <header>
     <div class="titlerow">
       <h1>Porra <span class="em">Mundial</span> 2026</h1>
-      <span class="badge"><span class="dot" style="display:inline-block;margin-right:5px"></span>En directo</span>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <a class="navlink" href="RondaEliminatoria/">Ronda eliminatoria →</a>
+        <span class="badge"><span class="dot" style="display:inline-block;margin-right:5px"></span>En directo</span>
+      </div>
     </div>
     <div class="substrip">
       <span class="chip" id="progress">— / 72 partidos</span>

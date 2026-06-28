@@ -1,0 +1,1401 @@
+{
+  "players": [
+    "Javi",
+    "Nacho",
+    "Nacho A",
+    "Lucia",
+    "Andrea/Luis",
+    "Alvaro",
+    "Pablo",
+    "Juanma",
+    "Aya",
+    "Curro",
+    "Cris",
+    "Dani",
+    "Marcelo",
+    "Bea/Alejandro",
+    "Samuel"
+  ],
+  "matches": [
+    {
+      "id": "r32-01",
+      "side": "left",
+      "pos": 0,
+      "team1": "GER",
+      "team2": "PAR"
+    },
+    {
+      "id": "r32-02",
+      "side": "left",
+      "pos": 1,
+      "team1": "FRA",
+      "team2": "SWE"
+    },
+    {
+      "id": "r32-03",
+      "side": "left",
+      "pos": 2,
+      "team1": "RSA",
+      "team2": "CAN"
+    },
+    {
+      "id": "r32-04",
+      "side": "left",
+      "pos": 3,
+      "team1": "NED",
+      "team2": "MAR"
+    },
+    {
+      "id": "r32-05",
+      "side": "left",
+      "pos": 4,
+      "team1": "POR",
+      "team2": "CRO"
+    },
+    {
+      "id": "r32-06",
+      "side": "left",
+      "pos": 5,
+      "team1": "ESP",
+      "team2": "AUT"
+    },
+    {
+      "id": "r32-07",
+      "side": "left",
+      "pos": 6,
+      "team1": "USA",
+      "team2": "BOS"
+    },
+    {
+      "id": "r32-08",
+      "side": "left",
+      "pos": 7,
+      "team1": "BEL",
+      "team2": "SEN"
+    },
+    {
+      "id": "r32-09",
+      "side": "right",
+      "pos": 0,
+      "team1": "BRA",
+      "team2": "JPN"
+    },
+    {
+      "id": "r32-10",
+      "side": "right",
+      "pos": 1,
+      "team1": "CIV",
+      "team2": "NOR"
+    },
+    {
+      "id": "r32-11",
+      "side": "right",
+      "pos": 2,
+      "team1": "MEX",
+      "team2": "ECU"
+    },
+    {
+      "id": "r32-12",
+      "side": "right",
+      "pos": 3,
+      "team1": "ENG",
+      "team2": "CON"
+    },
+    {
+      "id": "r32-13",
+      "side": "right",
+      "pos": 4,
+      "team1": "ARG",
+      "team2": "CPV"
+    },
+    {
+      "id": "r32-14",
+      "side": "right",
+      "pos": 5,
+      "team1": "AUS",
+      "team2": "EGY"
+    },
+    {
+      "id": "r32-15",
+      "side": "right",
+      "pos": 6,
+      "team1": "SUI",
+      "team2": "ALG"
+    },
+    {
+      "id": "r32-16",
+      "side": "right",
+      "pos": 7,
+      "team1": "COL",
+      "team2": "GHA"
+    }
+  ],
+  "names": {
+    "GER": "Alemania",
+    "PAR": "Paraguay",
+    "FRA": "Francia",
+    "SWE": "Suecia",
+    "RSA": "Sudáfrica",
+    "CAN": "Canadá",
+    "NED": "Países Bajos",
+    "MAR": "Marruecos",
+    "POR": "Portugal",
+    "CRO": "Croacia",
+    "ESP": "España",
+    "AUT": "Austria",
+    "USA": "EEUU",
+    "BOS": "Bosnia",
+    "BEL": "Bélgica",
+    "SEN": "Senegal",
+    "BRA": "Brasil",
+    "JPN": "Japón",
+    "CIV": "C. de Marfil",
+    "NOR": "Noruega",
+    "MEX": "México",
+    "ECU": "Ecuador",
+    "ENG": "Inglaterra",
+    "CON": "RD Congo",
+    "ARG": "Argentina",
+    "CPV": "Cabo Verde",
+    "AUS": "Australia",
+    "EGY": "Egipto",
+    "SUI": "Suiza",
+    "ALG": "Argelia",
+    "COL": "Colombia",
+    "GHA": "Ghana"
+  },
+  "predictions": {
+    "r32-01": {
+      "Javi": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "GER"
+      },
+      "Nacho": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "GER"
+      },
+      "Nacho A": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "GER"
+      },
+      "Lucia": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "GER"
+      },
+      "Andrea/Luis": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "GER"
+      },
+      "Alvaro": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "GER"
+      },
+      "Pablo": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "GER"
+      },
+      "Juanma": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "GER"
+      },
+      "Aya": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "GER"
+      },
+      "Curro": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "GER"
+      },
+      "Cris": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "GER"
+      },
+      "Dani": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "GER"
+      },
+      "Marcelo": {
+        "g1": 2,
+        "g2": 2,
+        "adv": "GER"
+      },
+      "Bea/Alejandro": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "GER"
+      },
+      "Samuel": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "GER"
+      }
+    },
+    "r32-02": {
+      "Javi": {
+        "g1": 4,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Nacho": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "FRA"
+      },
+      "Nacho A": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "FRA"
+      },
+      "Lucia": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Andrea/Luis": {
+        "g1": 4,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Alvaro": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "FRA"
+      },
+      "Pablo": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "FRA"
+      },
+      "Juanma": {
+        "g1": 4,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Aya": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Curro": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "FRA"
+      },
+      "Cris": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "FRA"
+      },
+      "Dani": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Marcelo": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Bea/Alejandro": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Samuel": {
+        "g1": 3,
+        "g2": 2,
+        "adv": "FRA"
+      }
+    },
+    "r32-03": {
+      "Javi": {
+        "g1": 0,
+        "g2": 2,
+        "adv": "CAN"
+      },
+      "Nacho": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "CAN"
+      },
+      "Nacho A": {
+        "g1": 0,
+        "g2": 1,
+        "adv": "CAN"
+      },
+      "Lucia": {
+        "g1": 0,
+        "g2": 2,
+        "adv": "CAN"
+      },
+      "Andrea/Luis": {
+        "g1": 0,
+        "g2": 2,
+        "adv": "CAN"
+      },
+      "Alvaro": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "CAN"
+      },
+      "Pablo": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "CAN"
+      },
+      "Juanma": {
+        "g1": 1,
+        "g2": 3,
+        "adv": "CAN"
+      },
+      "Aya": {
+        "g1": 0,
+        "g2": 2,
+        "adv": "CAN"
+      },
+      "Curro": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "CAN"
+      },
+      "Cris": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "CAN"
+      },
+      "Dani": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "CAN"
+      },
+      "Marcelo": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "RSA"
+      },
+      "Bea/Alejandro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "CAN"
+      },
+      "Samuel": {
+        "g1": 0,
+        "g2": 1,
+        "adv": "CAN"
+      }
+    },
+    "r32-04": {
+      "Javi": {
+        "g1": 2,
+        "g2": 2,
+        "adv": "MAR"
+      },
+      "Nacho": {
+        "g1": 3,
+        "g2": 2,
+        "adv": "NED"
+      },
+      "Nacho A": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "NED"
+      },
+      "Lucia": {
+        "g1": 2,
+        "g2": 3,
+        "adv": "MAR"
+      },
+      "Andrea/Luis": {
+        "g1": 2,
+        "g2": 2,
+        "adv": "NED"
+      },
+      "Alvaro": {
+        "g1": 2,
+        "g2": 2,
+        "adv": "NED"
+      },
+      "Pablo": {
+        "g1": 2,
+        "g2": 2,
+        "adv": "NED"
+      },
+      "Juanma": {
+        "g1": 2,
+        "g2": 2,
+        "adv": "NED"
+      },
+      "Aya": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "NED"
+      },
+      "Curro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "MAR"
+      },
+      "Cris": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "NED"
+      },
+      "Dani": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "NED"
+      },
+      "Marcelo": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "NED"
+      },
+      "Bea/Alejandro": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "MAR"
+      },
+      "Samuel": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "MAR"
+      }
+    },
+    "r32-05": {
+      "Javi": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "POR"
+      },
+      "Nacho": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "POR"
+      },
+      "Nacho A": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "POR"
+      },
+      "Lucia": {
+        "g1": 3,
+        "g2": 2,
+        "adv": "POR"
+      },
+      "Andrea/Luis": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "POR"
+      },
+      "Alvaro": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "POR"
+      },
+      "Pablo": {
+        "g1": 3,
+        "g2": 2,
+        "adv": "POR"
+      },
+      "Juanma": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "POR"
+      },
+      "Aya": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "POR"
+      },
+      "Curro": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "POR"
+      },
+      "Cris": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "POR"
+      },
+      "Dani": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "POR"
+      },
+      "Marcelo": {
+        "g1": 2,
+        "g2": 2,
+        "adv": "POR"
+      },
+      "Bea/Alejandro": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "POR"
+      },
+      "Samuel": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "POR"
+      }
+    },
+    "r32-06": {
+      "Javi": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ESP"
+      },
+      "Nacho": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ESP"
+      },
+      "Nacho A": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "ESP"
+      },
+      "Lucia": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ESP"
+      },
+      "Andrea/Luis": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "ESP"
+      },
+      "Alvaro": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ESP"
+      },
+      "Pablo": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "ESP"
+      },
+      "Juanma": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "ESP"
+      },
+      "Aya": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "ESP"
+      },
+      "Curro": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "ESP"
+      },
+      "Cris": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "ESP"
+      },
+      "Dani": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "ESP"
+      },
+      "Marcelo": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ESP"
+      },
+      "Bea/Alejandro": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ESP"
+      },
+      "Samuel": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "ESP"
+      }
+    },
+    "r32-07": {
+      "Javi": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "USA"
+      },
+      "Nacho": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "USA"
+      },
+      "Nacho A": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "USA"
+      },
+      "Lucia": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "USA"
+      },
+      "Andrea/Luis": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "USA"
+      },
+      "Alvaro": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "USA"
+      },
+      "Pablo": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "USA"
+      },
+      "Juanma": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "USA"
+      },
+      "Aya": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "USA"
+      },
+      "Curro": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "USA"
+      },
+      "Cris": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "USA"
+      },
+      "Dani": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "USA"
+      },
+      "Marcelo": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "BOS"
+      },
+      "Bea/Alejandro": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "USA"
+      },
+      "Samuel": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "USA"
+      }
+    },
+    "r32-08": {
+      "Javi": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "BEL"
+      },
+      "Nacho": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "BEL"
+      },
+      "Nacho A": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "BEL"
+      },
+      "Lucia": {
+        "g1": 0,
+        "g2": 1,
+        "adv": "SEN"
+      },
+      "Andrea/Luis": {
+        "g1": 0,
+        "g2": 1,
+        "adv": "SEN"
+      },
+      "Alvaro": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "SEN"
+      },
+      "Pablo": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "BEL"
+      },
+      "Juanma": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "SEN"
+      },
+      "Aya": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "BEL"
+      },
+      "Curro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "SEN"
+      },
+      "Cris": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "BEL"
+      },
+      "Dani": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "BEL"
+      },
+      "Marcelo": {
+        "g1": 0,
+        "g2": 1,
+        "adv": "SEN"
+      },
+      "Bea/Alejandro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "SEN"
+      },
+      "Samuel": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "BEL"
+      }
+    },
+    "r32-09": {
+      "Javi": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "BRA"
+      },
+      "Nacho": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "BRA"
+      },
+      "Nacho A": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "BRA"
+      },
+      "Lucia": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "JPN"
+      },
+      "Andrea/Luis": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "BRA"
+      },
+      "Alvaro": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "BRA"
+      },
+      "Pablo": {
+        "g1": 2,
+        "g2": 2,
+        "adv": "BRA"
+      },
+      "Juanma": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "BRA"
+      },
+      "Aya": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "BRA"
+      },
+      "Curro": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "BRA"
+      },
+      "Cris": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "BRA"
+      },
+      "Dani": {
+        "g1": 2,
+        "g2": 2,
+        "adv": "BRA"
+      },
+      "Marcelo": {
+        "g1": 2,
+        "g2": 2,
+        "adv": "BRA"
+      },
+      "Bea/Alejandro": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "BRA"
+      },
+      "Samuel": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "BRA"
+      }
+    },
+    "r32-10": {
+      "Javi": {
+        "g1": 1,
+        "g2": 3,
+        "adv": "NOR"
+      },
+      "Nacho": {
+        "g1": 1,
+        "g2": 3,
+        "adv": "NOR"
+      },
+      "Nacho A": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "NOR"
+      },
+      "Lucia": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "CIV"
+      },
+      "Andrea/Luis": {
+        "g1": 1,
+        "g2": 3,
+        "adv": "NOR"
+      },
+      "Alvaro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "NOR"
+      },
+      "Pablo": {
+        "g1": 3,
+        "g2": 4,
+        "adv": "NOR"
+      },
+      "Juanma": {
+        "g1": 2,
+        "g2": 3,
+        "adv": "NOR"
+      },
+      "Aya": {
+        "g1": 0,
+        "g2": 1,
+        "adv": "NOR"
+      },
+      "Curro": {
+        "g1": 0,
+        "g2": 1,
+        "adv": "NOR"
+      },
+      "Cris": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "NOR"
+      },
+      "Dani": {
+        "g1": 0,
+        "g2": 3,
+        "adv": "NOR"
+      },
+      "Marcelo": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "NOR"
+      },
+      "Bea/Alejandro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "NOR"
+      },
+      "Samuel": {
+        "g1": 0,
+        "g2": 2,
+        "adv": "NOR"
+      }
+    },
+    "r32-11": {
+      "Javi": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "MEX"
+      },
+      "Nacho": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "MEX"
+      },
+      "Nacho A": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "MEX"
+      },
+      "Lucia": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "MEX"
+      },
+      "Andrea/Luis": {
+        "g1": 0,
+        "g2": 1,
+        "adv": "ECU"
+      },
+      "Alvaro": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "MEX"
+      },
+      "Pablo": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "ECU"
+      },
+      "Juanma": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "MEX"
+      },
+      "Aya": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "MEX"
+      },
+      "Curro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "ECU"
+      },
+      "Cris": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "MEX"
+      },
+      "Dani": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "MEX"
+      },
+      "Marcelo": {
+        "g1": 2,
+        "g2": 2,
+        "adv": "MEX"
+      },
+      "Bea/Alejandro": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "MEX"
+      },
+      "Samuel": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "MEX"
+      }
+    },
+    "r32-12": {
+      "Javi": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ENG"
+      },
+      "Nacho": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ENG"
+      },
+      "Nacho A": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "ENG"
+      },
+      "Lucia": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "ENG"
+      },
+      "Andrea/Luis": {
+        "g1": 4,
+        "g2": 0,
+        "adv": "ENG"
+      },
+      "Alvaro": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "ENG"
+      },
+      "Pablo": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "ENG"
+      },
+      "Juanma": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "ENG"
+      },
+      "Aya": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ENG"
+      },
+      "Curro": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ENG"
+      },
+      "Cris": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "ENG"
+      },
+      "Dani": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "ENG"
+      },
+      "Marcelo": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "ENG"
+      },
+      "Bea/Alejandro": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "ENG"
+      },
+      "Samuel": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ENG"
+      }
+    },
+    "r32-13": {
+      "Javi": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "ARG"
+      },
+      "Nacho": {
+        "g1": 0,
+        "g2": 0,
+        "adv": "ARG"
+      },
+      "Nacho A": {
+        "g1": 4,
+        "g2": 2,
+        "adv": "ARG"
+      },
+      "Lucia": {
+        "g1": 4,
+        "g2": 3,
+        "adv": "ARG"
+      },
+      "Andrea/Luis": {
+        "g1": 4,
+        "g2": 0,
+        "adv": "ARG"
+      },
+      "Alvaro": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ARG"
+      },
+      "Pablo": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ARG"
+      },
+      "Juanma": {
+        "g1": 4,
+        "g2": 0,
+        "adv": "ARG"
+      },
+      "Aya": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "ARG"
+      },
+      "Curro": {
+        "g1": 4,
+        "g2": 0,
+        "adv": "ARG"
+      },
+      "Cris": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ARG"
+      },
+      "Dani": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ARG"
+      },
+      "Marcelo": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "ARG"
+      },
+      "Bea/Alejandro": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "ARG"
+      },
+      "Samuel": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ARG"
+      }
+    },
+    "r32-14": {
+      "Javi": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "EGY"
+      },
+      "Nacho": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "EGY"
+      },
+      "Nacho A": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "EGY"
+      },
+      "Lucia": {
+        "g1": 0,
+        "g2": 0,
+        "adv": "EGY"
+      },
+      "Andrea/Luis": {
+        "g1": 0,
+        "g2": 0,
+        "adv": "EGY"
+      },
+      "Alvaro": {
+        "g1": 0,
+        "g2": 1,
+        "adv": "EGY"
+      },
+      "Pablo": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "EGY"
+      },
+      "Juanma": {
+        "g1": 0,
+        "g2": 1,
+        "adv": "EGY"
+      },
+      "Aya": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "AUS"
+      },
+      "Curro": {
+        "g1": 0,
+        "g2": 1,
+        "adv": "EGY"
+      },
+      "Cris": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "EGY"
+      },
+      "Dani": {
+        "g1": 1,
+        "g2": 3,
+        "adv": "EGY"
+      },
+      "Marcelo": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "AUS"
+      },
+      "Bea/Alejandro": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "EGY"
+      },
+      "Samuel": {
+        "g1": 0,
+        "g2": 1,
+        "adv": "EGY"
+      }
+    },
+    "r32-15": {
+      "Javi": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "SUI"
+      },
+      "Nacho": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "SUI"
+      },
+      "Nacho A": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "SUI"
+      },
+      "Lucia": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "ALG"
+      },
+      "Andrea/Luis": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "SUI"
+      },
+      "Alvaro": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "SUI"
+      },
+      "Pablo": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "SUI"
+      },
+      "Juanma": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "ALG"
+      },
+      "Aya": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "ALG"
+      },
+      "Curro": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "SUI"
+      },
+      "Cris": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "SUI"
+      },
+      "Dani": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "ALG"
+      },
+      "Marcelo": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "ALG"
+      },
+      "Bea/Alejandro": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "SUI"
+      },
+      "Samuel": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "SUI"
+      }
+    },
+    "r32-16": {
+      "Javi": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "COL"
+      },
+      "Nacho": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "COL"
+      },
+      "Nacho A": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "COL"
+      },
+      "Lucia": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "COL"
+      },
+      "Andrea/Luis": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "COL"
+      },
+      "Alvaro": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "COL"
+      },
+      "Pablo": {
+        "g1": 3,
+        "g2": 2,
+        "adv": "COL"
+      },
+      "Juanma": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "COL"
+      },
+      "Aya": {
+        "g1": 3,
+        "g2": 0,
+        "adv": "COL"
+      },
+      "Curro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "GHA"
+      },
+      "Cris": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "COL"
+      },
+      "Dani": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "COL"
+      },
+      "Marcelo": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "COL"
+      },
+      "Bea/Alejandro": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "COL"
+      },
+      "Samuel": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "COL"
+      }
+    }
+  }
+}
