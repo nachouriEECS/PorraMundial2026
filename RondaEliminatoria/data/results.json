@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-06-29T19:23:18Z",
+  "lastUpdated": "2026-06-29T21:02:27Z",
   "lastFinishedId": "r32-09",
   "nextMatchId": "r32-01",
   "matches": {
     "r32-01": {
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "g1": null,
       "g2": null,
       "adv": null,
