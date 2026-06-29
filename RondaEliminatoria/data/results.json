@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-06-29T17:32:46Z",
-  "lastFinishedId": "r32-03",
-  "nextMatchId": "r32-09",
+  "lastUpdated": "2026-06-29T19:11:54Z",
+  "lastFinishedId": "r32-09",
+  "nextMatchId": "r32-01",
   "matches": {
     "r32-01": {
       "status": "TIMED",
@@ -76,11 +76,11 @@
       "source": "api"
     },
     "r32-09": {
-      "status": "IN_PLAY",
-      "g1": null,
-      "g2": null,
-      "adv": null,
-      "score": null,
+      "status": "FINISHED",
+      "g1": 2,
+      "g2": 1,
+      "adv": "BRA",
+      "score": "2-1",
       "utcDate": "2026-06-29T17:00:00Z",
       "source": "api"
     },
