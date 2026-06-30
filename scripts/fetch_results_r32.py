@@ -132,6 +132,12 @@ def main():
             g1, g2 = (fx["ag"], fx["hg"]) if flip else (fx["hg"], fx["ag"])
             ph, pa = (fx["pa"], fx["ph"]) if flip else (fx["ph"], fx["pa"])
             if fx["status"] == "FINISHED" and g1 is not None and g2 is not None:
+                # football-data folds the shootout goals into fullTime, so a
+                # penalty game comes back as e.g. 4-5 with penalties 3-4. We score
+                # on the 120-minute result (a draw), so strip the shootout tally
+                # back out; penalties only decide who advances.
+                if ph is not None and pa is not None:
+                    g1, g2 = g1 - ph, g2 - pa
                 entry["g1"], entry["g2"] = g1, g2
                 entry["score"] = f"{g1}-{g2}"
                 if g1 > g2:
