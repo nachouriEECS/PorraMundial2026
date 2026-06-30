@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-30T15:59:13Z",
+  "lastUpdated": "2026-06-30T17:53:14Z",
   "lastFinishedId": "r32-04",
   "nextMatchId": "r32-10",
   "matches": {
@@ -85,7 +85,7 @@
       "source": "api"
     },
     "r32-10": {
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "g1": null,
       "g2": null,
       "adv": null,
