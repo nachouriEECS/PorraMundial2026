@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-07-02T20:10:04Z",
-  "lastFinishedId": "r32-07",
-  "nextMatchId": "r32-06",
+  "lastUpdated": "2026-07-02T21:22:13Z",
+  "lastFinishedId": "r32-06",
+  "nextMatchId": "r32-05",
   "matches": {
     "r32-01": {
       "status": "FINISHED",
@@ -49,11 +49,11 @@
       "source": "api"
     },
     "r32-06": {
-      "status": "PAUSED",
-      "g1": null,
-      "g2": null,
-      "adv": null,
-      "score": null,
+      "status": "FINISHED",
+      "g1": 3,
+      "g2": 0,
+      "adv": "ESP",
+      "score": "3-0",
       "utcDate": "2026-07-02T19:00:00Z",
       "source": "api"
     },
