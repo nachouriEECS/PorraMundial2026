@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T04:53:35Z",
+  "lastUpdated": "2026-07-04T07:35:20Z",
   "lastFinishedId": "r32-16",
   "nextMatchId": null,
   "matches": {
@@ -122,10 +122,10 @@
     },
     "r32-14": {
       "status": "FINISHED",
-      "g1": -1,
+      "g1": 1,
       "g2": 1,
       "adv": "EGY",
-      "score": "-1-1",
+      "score": "1-1",
       "utcDate": "2026-07-03T18:00:00Z",
       "source": "api"
     },
