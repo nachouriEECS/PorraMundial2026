@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-07-02T23:41:24Z",
-  "lastFinishedId": "r32-06",
-  "nextMatchId": "r32-05",
+  "lastUpdated": "2026-07-04T21:00:49Z",
+  "lastFinishedId": "r32-16",
+  "nextMatchId": null,
   "matches": {
     "r32-01": {
       "status": "FINISHED",
@@ -40,13 +40,13 @@
       "source": "api"
     },
     "r32-05": {
-      "status": "IN_PLAY",
-      "g1": null,
-      "g2": null,
-      "adv": null,
-      "score": null,
+      "status": "FINISHED",
+      "g1": 2,
+      "g2": 1,
+      "adv": "POR",
+      "score": "2-1",
       "utcDate": "2026-07-02T23:00:00Z",
-      "source": "api"
+      "source": "override"
     },
     "r32-06": {
       "status": "FINISHED",
@@ -112,40 +112,40 @@
       "source": "api"
     },
     "r32-13": {
-      "status": "TIMED",
-      "g1": null,
-      "g2": null,
-      "adv": null,
-      "score": null,
+      "status": "FINISHED",
+      "g1": 3,
+      "g2": 2,
+      "adv": "ARG",
+      "score": "3-2",
       "utcDate": "2026-07-03T22:00:00Z",
-      "source": "api"
+      "source": "override"
     },
     "r32-14": {
-      "status": "TIMED",
-      "g1": null,
-      "g2": null,
-      "adv": null,
-      "score": null,
+      "status": "FINISHED",
+      "g1": 1,
+      "g2": 1,
+      "adv": "EGY",
+      "score": "1-1",
       "utcDate": "2026-07-03T18:00:00Z",
-      "source": "api"
+      "source": "override"
     },
     "r32-15": {
-      "status": "TIMED",
-      "g1": null,
-      "g2": null,
-      "adv": null,
-      "score": null,
+      "status": "FINISHED",
+      "g1": 2,
+      "g2": 0,
+      "adv": "SUI",
+      "score": "2-0",
       "utcDate": "2026-07-03T03:00:00Z",
-      "source": "api"
+      "source": "override"
     },
     "r32-16": {
-      "status": "TIMED",
-      "g1": null,
-      "g2": null,
-      "adv": null,
-      "score": null,
+      "status": "FINISHED",
+      "g1": 1,
+      "g2": 0,
+      "adv": "COL",
+      "score": "1-0",
       "utcDate": "2026-07-04T01:30:00Z",
-      "source": "api"
+      "source": "override"
     }
   }
 }
