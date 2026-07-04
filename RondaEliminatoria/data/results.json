@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T21:00:49Z",
+  "lastUpdated": "2026-07-04T21:32:25Z",
   "lastFinishedId": "r32-16",
   "nextMatchId": null,
   "matches": {
@@ -46,7 +46,7 @@
       "adv": "POR",
       "score": "2-1",
       "utcDate": "2026-07-02T23:00:00Z",
-      "source": "override"
+      "source": "api"
     },
     "r32-06": {
       "status": "FINISHED",
@@ -118,7 +118,7 @@
       "adv": "ARG",
       "score": "3-2",
       "utcDate": "2026-07-03T22:00:00Z",
-      "source": "override"
+      "source": "api"
     },
     "r32-14": {
       "status": "FINISHED",
@@ -127,7 +127,7 @@
       "adv": "EGY",
       "score": "1-1",
       "utcDate": "2026-07-03T18:00:00Z",
-      "source": "override"
+      "source": "api"
     },
     "r32-15": {
       "status": "FINISHED",
@@ -136,7 +136,7 @@
       "adv": "SUI",
       "score": "2-0",
       "utcDate": "2026-07-03T03:00:00Z",
-      "source": "override"
+      "source": "api"
     },
     "r32-16": {
       "status": "FINISHED",
@@ -145,7 +145,7 @@
       "adv": "COL",
       "score": "1-0",
       "utcDate": "2026-07-04T01:30:00Z",
-      "source": "override"
+      "source": "api"
     }
   }
 }
