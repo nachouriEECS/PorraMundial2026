@@ -1483,7 +1483,17 @@
         "g2": 2,
         "adv": "MAR"
       },
+      "Nacho": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "MAR"
+      },
       "Nacho A": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "MAR"
+      },
+      "Lucia": {
         "g1": 1,
         "g2": 2,
         "adv": "MAR"
@@ -1513,15 +1523,35 @@
         "g2": 2,
         "adv": "MAR"
       },
+      "Curro": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "CAN"
+      },
       "Cris": {
         "g1": 0,
         "g2": 1,
         "adv": "MAR"
       },
+      "Dani": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "CAN"
+      },
       "Marcelo": {
         "g1": 1,
         "g2": 1,
         "adv": "CAN"
+      },
+      "Bea/Alejandro": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "MAR"
+      },
+      "Samuel": {
+        "g1": 0,
+        "g2": 2,
+        "adv": "MAR"
       }
     },
     "r16-02": {
@@ -1530,9 +1560,19 @@
         "g2": 4,
         "adv": "FRA"
       },
+      "Nacho": {
+        "g1": 0,
+        "g2": 3,
+        "adv": "FRA"
+      },
       "Nacho A": {
         "g1": 0,
         "g2": 3,
+        "adv": "FRA"
+      },
+      "Lucia": {
+        "g1": 0,
+        "g2": 2,
         "adv": "FRA"
       },
       "Andrea/Luis": {
@@ -1560,14 +1600,34 @@
         "g2": 3,
         "adv": "FRA"
       },
+      "Curro": {
+        "g1": 0,
+        "g2": 3,
+        "adv": "FRA"
+      },
       "Cris": {
         "g1": 0,
         "g2": 2,
         "adv": "FRA"
       },
+      "Dani": {
+        "g1": 1,
+        "g2": 3,
+        "adv": "FRA"
+      },
       "Marcelo": {
         "g1": 1,
         "g2": 2,
+        "adv": "FRA"
+      },
+      "Bea/Alejandro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "FRA"
+      },
+      "Samuel": {
+        "g1": 0,
+        "g2": 3,
         "adv": "FRA"
       }
     },
@@ -1577,10 +1637,20 @@
         "g2": 1,
         "adv": "BRA"
       },
+      "Nacho": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "NOR"
+      },
       "Nacho A": {
         "g1": 3,
         "g2": 1,
         "adv": "BRA"
+      },
+      "Lucia": {
+        "g1": 0,
+        "g2": 1,
+        "adv": "NOR"
       },
       "Andrea/Luis": {
         "g1": 1,
@@ -1607,7 +1677,17 @@
         "g2": 1,
         "adv": "BRA"
       },
+      "Curro": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "BRA"
+      },
       "Cris": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "BRA"
+      },
+      "Dani": {
         "g1": 2,
         "g2": 1,
         "adv": "BRA"
@@ -1616,6 +1696,16 @@
         "g1": 1,
         "g2": 2,
         "adv": "NOR"
+      },
+      "Bea/Alejandro": {
+        "g1": 2,
+        "g2": 2,
+        "adv": "BRA"
+      },
+      "Samuel": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "BRA"
       }
     },
     "r16-04": {
@@ -1624,10 +1714,20 @@
         "g2": 1,
         "adv": "MEX"
       },
+      "Nacho": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "MEX"
+      },
       "Nacho A": {
         "g1": 1,
         "g2": 2,
         "adv": "ENG"
+      },
+      "Lucia": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "MEX"
       },
       "Andrea/Luis": {
         "g1": 1,
@@ -1654,7 +1754,17 @@
         "g2": 2,
         "adv": "ENG"
       },
+      "Curro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "ENG"
+      },
       "Cris": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "ENG"
+      },
+      "Dani": {
         "g1": 1,
         "g2": 1,
         "adv": "ENG"
@@ -1663,6 +1773,16 @@
         "g1": 1,
         "g2": 1,
         "adv": "MEX"
+      },
+      "Bea/Alejandro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "ENG"
+      },
+      "Samuel": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "ENG"
       }
     },
     "r16-05": {
@@ -1671,9 +1791,19 @@
         "g2": 3,
         "adv": "ESP"
       },
+      "Nacho": {
+        "g1": 0,
+        "g2": 2,
+        "adv": "ESP"
+      },
       "Nacho A": {
         "g1": 1,
         "g2": 2,
+        "adv": "ESP"
+      },
+      "Lucia": {
+        "g1": 2,
+        "g2": 3,
         "adv": "ESP"
       },
       "Andrea/Luis": {
@@ -1701,8 +1831,18 @@
         "g2": 2,
         "adv": "POR"
       },
+      "Curro": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "ESP"
+      },
       "Cris": {
         "g1": 1,
+        "g2": 2,
+        "adv": "ESP"
+      },
+      "Dani": {
+        "g1": 0,
         "g2": 2,
         "adv": "ESP"
       },
@@ -1710,6 +1850,16 @@
         "g1": 1,
         "g2": 2,
         "adv": "ESP"
+      },
+      "Bea/Alejandro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "ESP"
+      },
+      "Samuel": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "POR"
       }
     },
     "r16-06": {
@@ -1718,10 +1868,20 @@
         "g2": 0,
         "adv": "USA"
       },
+      "Nacho": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "USA"
+      },
       "Nacho A": {
         "g1": 1,
         "g2": 1,
         "adv": "USA"
+      },
+      "Lucia": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "BEL"
       },
       "Andrea/Luis": {
         "g1": 2,
@@ -1748,14 +1908,34 @@
         "g2": 0,
         "adv": "USA"
       },
+      "Curro": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "USA"
+      },
       "Cris": {
         "g1": 1,
+        "g2": 1,
+        "adv": "USA"
+      },
+      "Dani": {
+        "g1": 2,
         "g2": 1,
         "adv": "USA"
       },
       "Marcelo": {
         "g1": 1,
         "g2": 1,
+        "adv": "BEL"
+      },
+      "Bea/Alejandro": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "USA"
+      },
+      "Samuel": {
+        "g1": 1,
+        "g2": 2,
         "adv": "BEL"
       }
     },
@@ -1765,10 +1945,20 @@
         "g2": 0,
         "adv": "ARG"
       },
+      "Nacho": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "ARG"
+      },
       "Nacho A": {
         "g1": 3,
         "g2": 0,
         "adv": "ARG"
+      },
+      "Lucia": {
+        "g1": 1,
+        "g2": 3,
+        "adv": "EGY"
       },
       "Andrea/Luis": {
         "g1": 3,
@@ -1795,14 +1985,34 @@
         "g2": 1,
         "adv": "ARG"
       },
+      "Curro": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "ARG"
+      },
       "Cris": {
         "g1": 2,
+        "g2": 0,
+        "adv": "ARG"
+      },
+      "Dani": {
+        "g1": 3,
         "g2": 0,
         "adv": "ARG"
       },
       "Marcelo": {
         "g1": 2,
         "g2": 1,
+        "adv": "ARG"
+      },
+      "Bea/Alejandro": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "ARG"
+      },
+      "Samuel": {
+        "g1": 2,
+        "g2": 0,
         "adv": "ARG"
       }
     },
@@ -1812,9 +2022,19 @@
         "g2": 3,
         "adv": "COL"
       },
+      "Nacho": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "COL"
+      },
       "Nacho A": {
         "g1": 1,
         "g2": 1,
+        "adv": "COL"
+      },
+      "Lucia": {
+        "g1": 0,
+        "g2": 0,
         "adv": "COL"
       },
       "Andrea/Luis": {
@@ -1842,7 +2062,17 @@
         "g2": 1,
         "adv": "COL"
       },
+      "Curro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "COL"
+      },
       "Cris": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "COL"
+      },
+      "Dani": {
         "g1": 1,
         "g2": 1,
         "adv": "COL"
@@ -1851,6 +2081,16 @@
         "g1": 1,
         "g2": 1,
         "adv": "SUI"
+      },
+      "Bea/Alejandro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "COL"
+      },
+      "Samuel": {
+        "g1": 0,
+        "g2": 1,
+        "adv": "COL"
       }
     }
   }
