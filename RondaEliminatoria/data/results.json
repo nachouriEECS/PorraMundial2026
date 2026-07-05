@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-05T22:40:38Z",
+  "lastUpdated": "2026-07-05T23:45:24Z",
   "lastFinishedId": "r16-03",
   "nextMatchId": "r16-04",
   "matches": {
@@ -175,12 +175,12 @@
       "source": "api"
     },
     "r16-04": {
-      "status": "TIMED",
+      "status": "2026-07-06 01:00:00Z",
       "g1": null,
       "g2": null,
       "adv": null,
       "score": null,
-      "utcDate": "2026-07-06T00:00:00Z",
+      "utcDate": "2026-07-06T01:00:00Z",
       "source": "api"
     },
     "r16-05": {
