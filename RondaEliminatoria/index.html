@@ -34,7 +34,7 @@
     -webkit-font-smoothing:antialiased; min-height:100vh;
     padding:0 14px env(safe-area-inset-bottom);
   }
-  .wrap{max-width:1320px;margin:0 auto}
+  .wrap{max-width:1440px;margin:0 auto}
 
   /* ---------- Header ---------- */
   header{
@@ -63,7 +63,7 @@
 
   /* ---------- Layout ---------- */
   .layout{display:grid;grid-template-columns:1fr;gap:16px;align-items:start;margin-top:14px}
-  @media(min-width:1040px){.layout{grid-template-columns:220px minmax(0,1fr) 220px}}
+  @media(min-width:1040px){.layout{grid-template-columns:190px minmax(0,1fr) 190px}}
 
   /* ---------- Leaderboard ---------- */
   .board-wrap{background:linear-gradient(180deg,var(--panel),var(--panel-2));
@@ -101,16 +101,20 @@
   .legend i.l3{background:var(--p3-bg);border-color:var(--p3)}
   .legend .sep{flex:1}
 
-  .bracket{display:flex;align-items:stretch;justify-content:center;gap:6px}
+  /* Two named rounds + center never fit a narrow board, so keep a readable
+     floor and let the board scroll horizontally below it rather than shrink
+     boxes until team names collapse to single letters. */
+  .bracket{display:flex;align-items:stretch;justify-content:center;gap:6px;min-width:840px}
   .side{display:flex;flex:1;min-width:0}
   .side.right{flex-direction:row-reverse}
   .rnd{display:flex;flex-direction:column;justify-content:space-around;gap:8px;flex:1;min-width:0}
   /* r32 boxes are natural height and the leftover space becomes even gaps, so
      taller boxes (penalty line / real result) don't crowd their neighbours. */
-  .rnd.r32{flex:1.7;justify-content:space-between;gap:12px}
-  /* octavos: 4 boxes, each centred against the pair of r32 boxes it comes from */
-  .rnd.r16{flex:1.35;justify-content:space-around;gap:12px}
-  .rnd.empty{flex:.42}
+  .rnd.r32{flex:1.5;justify-content:space-between;gap:12px}
+  /* octavos: 4 boxes, each centred against the pair of r32 boxes it comes from.
+     Equal flex with r32 so octavos team names get the same room to breathe. */
+  .rnd.r16{flex:1.5;justify-content:space-around;gap:12px}
+  .rnd.empty{flex:.34}
   .cell{display:flex;flex-direction:column;justify-content:center;min-width:0}
   .ghost{flex:1;display:flex;align-items:center;justify-content:center}
   .ghost b{width:80%;max-width:74px;height:clamp(26px,4vh,40px);border:1px dashed #2c382f;border-radius:8px;
@@ -120,7 +124,7 @@
   .mb{position:relative;display:flex;align-items:stretch;flex:none;min-height:74px;
      border:1px solid var(--line);border-radius:10px;background:var(--bg-2);transition:border-color .15s}
   .side.right .mb{direction:ltr}
-  .mb .teams{position:relative;flex:1;min-width:0;padding:7px 9px;
+  .mb .teams{position:relative;flex:1;min-width:0;padding:6px 8px;
      display:flex;flex-direction:column;justify-content:center}
   .mb .tm{position:relative;display:flex;align-items:center;gap:6px;font-size:12.5px;line-height:1.35;min-width:0}
   .mb .tm .fl{font-size:13px;flex:none}
@@ -132,7 +136,7 @@
   /* green caret marks the team the player has advancing */
   .mb .passmark{flex:none;color:var(--green);font-weight:700;font-size:11px;width:9px;text-align:center;margin-left:-2px}
   /* points column (right edge) — always visible, never covers the score */
-  .mb .pcol{flex:none;width:30px;display:flex;align-items:center;justify-content:center;
+  .mb .pcol{flex:none;width:27px;display:flex;align-items:center;justify-content:center;
      font-family:'Spline Sans Mono',monospace;font-weight:700;font-size:15px;
      border-left:1px solid var(--line);border-radius:0 9px 9px 0;color:var(--ink-faint)}
   /* color scales by points */
@@ -161,7 +165,7 @@
 
   /* center card */
   .center{display:flex;align-items:center;justify-content:center;flex:.001;padding:0 4px}
-  .ccard{width:min(168px,34vw);text-align:center;padding:16px 12px;border-radius:16px;
+  .ccard{width:min(156px,32vw);text-align:center;padding:16px 11px;border-radius:16px;
      border:1px solid var(--green-deep);background:
        radial-gradient(120px 80px at 50% 0%, rgba(33,208,122,.18), transparent 70%),
        linear-gradient(180deg,#16201a,#121913);box-shadow:0 14px 40px -16px rgba(0,0,0,.8)}
@@ -179,7 +183,7 @@
      horizontally (swipe left/right) instead of collapsing to a list. */
   .bracket-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
   @media(max-width:980px){
-    .bracket{min-width:1160px}
+    .bracket{min-width:1000px}
     .bracket-scroll{margin:0 -14px;padding:0 14px 8px;
       scrollbar-width:thin;scrollbar-color:var(--line) transparent}
     .bracket-scroll::-webkit-scrollbar{height:7px}
@@ -423,9 +427,14 @@ function roundCol(side, round, cls, row){
 }
 
 function renderBracket(row){
-  // R32 (16) → R16 octavos (8) → cuartos placeholder. Older data with no round
-  // tag falls back to r32, so the octavos column simply stays empty then.
-  const side = (s)=>`${roundCol(s,"r32","r32",row)}${roundCol(s,"r16","r16",row)||ghostRound(4)}${ghostRound(2)}`;
+  // Only render rounds that actually have data. With the octavos present, the
+  // two named columns share the full board width so team names stay legible;
+  // older data with no round tag falls back to r32 + ghost placeholders.
+  const side = (s)=>{
+    const r16 = roundCol(s,"r16","r16",row);
+    return r16 ? `${roundCol(s,"r32","r32",row)}${r16}`
+               : `${roundCol(s,"r32","r32",row)}${ghostRound(4)}${ghostRound(2)}`;
+  };
   const left = `<div class="side left">${side("left")}</div>`;
   const right= `<div class="side right">${side("right")}</div>`;
   const max = PRED.matches.length*3;
