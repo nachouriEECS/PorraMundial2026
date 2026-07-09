@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T18:22:12Z",
+  "lastUpdated": "2026-07-09T20:13:32Z",
   "lastFinishedId": "r16-08",
   "nextMatchId": "cf-01",
   "matches": {
@@ -220,7 +220,7 @@
       "source": "api"
     },
     "cf-01": {
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "g1": null,
       "g2": null,
       "adv": null,
