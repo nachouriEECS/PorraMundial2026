@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-07-09T21:45:43Z",
-  "lastFinishedId": "r16-08",
-  "nextMatchId": "cf-01",
+  "lastUpdated": "2026-07-09T22:56:53Z",
+  "lastFinishedId": "cf-01",
+  "nextMatchId": "cf-02",
   "matches": {
     "r32-01": {
       "status": "FINISHED",
@@ -220,11 +220,11 @@
       "source": "api"
     },
     "cf-01": {
-      "status": "IN_PLAY",
-      "g1": null,
-      "g2": null,
-      "adv": null,
-      "score": null,
+      "status": "FINISHED",
+      "g1": 2,
+      "g2": 0,
+      "adv": "FRA",
+      "score": "2-0",
       "utcDate": "2026-07-09T20:00:00Z",
       "source": "api"
     },
