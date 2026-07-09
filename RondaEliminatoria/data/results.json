@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-07-09T16:36:57Z",
+  "lastUpdated": "2026-07-09T18:22:12Z",
   "lastFinishedId": "r16-08",
-  "nextMatchId": null,
+  "nextMatchId": "cf-01",
   "matches": {
     "r32-01": {
       "status": "FINISHED",
@@ -217,6 +217,42 @@
       "adv": "SUI",
       "score": "0-0",
       "utcDate": "2026-07-07T20:00:00Z",
+      "source": "api"
+    },
+    "cf-01": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-07-09T20:00:00Z",
+      "source": "api"
+    },
+    "cf-02": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-07-10T19:00:00Z",
+      "source": "api"
+    },
+    "cf-03": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-07-11T21:00:00Z",
+      "source": "api"
+    },
+    "cf-04": {
+      "status": "TIMED",
+      "g1": null,
+      "g2": null,
+      "adv": null,
+      "score": null,
+      "utcDate": "2026-07-12T01:00:00Z",
       "source": "api"
     }
   }
