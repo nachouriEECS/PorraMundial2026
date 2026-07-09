@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Build RondaEliminatoria/data/predictions.json from the Excel.
 
-Parses two knockout blocks of `Porra Mundial 2026.xlsx`:
+Parses three knockout blocks of `Porra Mundial 2026.xlsx`:
   * "Ronda Eliminatoria" — the 16 Round-of-32 matches (round "r32").
   * the 8 Round-of-16 matches that follow it (round "r16").
+  * the 4 quarter-final matches that follow those (round "cf").
 
 Each player cell is an exact-score prediction like `4-1`, optionally annotated
 with who advances on a draw (`2-2 (ALE)`, `1-1 CAN`, `1-1 pasa Canada`,
@@ -199,9 +200,31 @@ def main():
             sys.exit(f"R16 tie {t1}-{t2} draws from both bracket sides")
         return s1, min(p1, p2) // 2
 
-    read_block(
+    next_row = read_block(
         ws, next_row, 8, players, "r16", "r16",
         matches, predictions, names, side_pos=r16_side_pos,
+    )
+
+    # --- Quarter-finals: 4 matches. Each tie is fed by two adjacent R16 matches
+    #     (positions 2k and 2k+1 on one side), so derive its side/pos from those
+    #     the same way the R16 column was derived from the R32 boxes.
+    team_r16 = {}
+    for m in matches:
+        if m["round"] != "r16":
+            continue
+        team_r16[m["team1"]] = (m["side"], m["pos"])
+        team_r16[m["team2"]] = (m["side"], m["pos"])
+
+    def cf_side_pos(idx, t1, t2):
+        s1, p1 = team_r16[t1]
+        s2, p2 = team_r16[t2]
+        if s1 != s2:
+            sys.exit(f"CF tie {t1}-{t2} draws from both bracket sides")
+        return s1, min(p1, p2) // 2
+
+    read_block(
+        ws, next_row, 4, players, "cf", "cf",
+        matches, predictions, names, side_pos=cf_side_pos,
     )
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
