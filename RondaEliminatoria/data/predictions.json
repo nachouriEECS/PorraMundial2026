@@ -240,6 +240,22 @@
       "pos": 1,
       "team1": "ARG",
       "team2": "SUI"
+    },
+    {
+      "id": "sf-01",
+      "round": "sf",
+      "side": "left",
+      "pos": 0,
+      "team1": "FRA",
+      "team2": "ESP"
+    },
+    {
+      "id": "sf-02",
+      "round": "sf",
+      "side": "right",
+      "pos": 0,
+      "team1": "ENG",
+      "team2": "ARG"
     }
   ],
   "names": {
@@ -2349,11 +2365,6 @@
         "g1": 2,
         "g2": 1,
         "adv": "NOR"
-      },
-      "Samuel": {
-        "g1": 2,
-        "g2": 1,
-        "adv": "NOR"
       }
     },
     "cf-04": {
@@ -2426,11 +2437,150 @@
         "g1": 2,
         "g2": 0,
         "adv": "ARG"
+      }
+    },
+    "sf-01": {
+      "Javi": {
+        "g1": 2,
+        "g2": 5,
+        "adv": "ESP"
+      },
+      "Nacho": {
+        "g1": 0,
+        "g2": 0,
+        "adv": "ESP"
+      },
+      "Nacho A": {
+        "g1": 2,
+        "g2": 2,
+        "adv": "FRA"
+      },
+      "Andrea/Luis": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Alvaro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "ESP"
+      },
+      "Pablo": {
+        "g1": 2,
+        "g2": 3,
+        "adv": "ESP"
+      },
+      "Juanma": {
+        "g1": 2,
+        "g2": 3,
+        "adv": "ESP"
+      },
+      "Aya": {
+        "g1": 2,
+        "g2": 3,
+        "adv": "ESP"
+      },
+      "Curro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "ESP"
+      },
+      "Cris": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Dani": {
+        "g1": 3,
+        "g2": 2,
+        "adv": "FRA"
+      },
+      "Marcelo": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "ESP"
+      },
+      "Bea/Alejandro": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "FRA"
       },
       "Samuel": {
         "g1": 2,
+        "g2": 1,
+        "adv": "FRA"
+      }
+    },
+    "sf-02": {
+      "Javi": {
+        "g1": 3,
         "g2": 0,
+        "adv": "ENG"
+      },
+      "Nacho": {
+        "g1": 3,
+        "g2": 2,
+        "adv": "ENG"
+      },
+      "Nacho A": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "ENG"
+      },
+      "Andrea/Luis": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "ENG"
+      },
+      "Alvaro": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "ENG"
+      },
+      "Pablo": {
+        "g1": 3,
+        "g2": 3,
         "adv": "ARG"
+      },
+      "Juanma": {
+        "g1": 3,
+        "g2": 2,
+        "adv": "ENG"
+      },
+      "Aya": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "ARG"
+      },
+      "Curro": {
+        "g1": 1,
+        "g2": 3,
+        "adv": "ARG"
+      },
+      "Cris": {
+        "g1": 2,
+        "g2": 2,
+        "adv": "ARG"
+      },
+      "Dani": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "ENG"
+      },
+      "Marcelo": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "ENG"
+      },
+      "Bea/Alejandro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "ARG"
+      },
+      "Samuel": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "ENG"
       }
     }
   }

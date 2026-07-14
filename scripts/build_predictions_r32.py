@@ -5,6 +5,7 @@ Parses three knockout blocks of `Porra Mundial 2026.xlsx`:
   * "Ronda Eliminatoria" — the 16 Round-of-32 matches (round "r32").
   * the 8 Round-of-16 matches that follow it (round "r16").
   * the 4 quarter-final matches that follow those (round "cf").
+  * the 2 semifinal matches that follow those (round "sf").
 
 Each player cell is an exact-score prediction like `4-1`, optionally annotated
 with who advances on a draw (`2-2 (ALE)`, `1-1 CAN`, `1-1 pasa Canada`,
@@ -222,9 +223,31 @@ def main():
             sys.exit(f"CF tie {t1}-{t2} draws from both bracket sides")
         return s1, min(p1, p2) // 2
 
-    read_block(
+    next_row = read_block(
         ws, next_row, 4, players, "cf", "cf",
         matches, predictions, names, side_pos=cf_side_pos,
+    )
+
+    # --- Semifinals: 2 matches. Each tie is fed by the pair of quarter-final
+    #     matches on one bracket side, so derive its side/pos from those the same
+    #     way the cuartos column was derived from the R16 boxes.
+    team_cf = {}
+    for m in matches:
+        if m["round"] != "cf":
+            continue
+        team_cf[m["team1"]] = (m["side"], m["pos"])
+        team_cf[m["team2"]] = (m["side"], m["pos"])
+
+    def sf_side_pos(idx, t1, t2):
+        s1, p1 = team_cf[t1]
+        s2, p2 = team_cf[t2]
+        if s1 != s2:
+            sys.exit(f"SF tie {t1}-{t2} draws from both bracket sides")
+        return s1, min(p1, p2) // 2
+
+    read_block(
+        ws, next_row, 2, players, "sf", "sf",
+        matches, predictions, names, side_pos=sf_side_pos,
     )
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
