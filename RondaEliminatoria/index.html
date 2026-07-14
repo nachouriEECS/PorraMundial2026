@@ -34,7 +34,7 @@
     -webkit-font-smoothing:antialiased; min-height:100vh;
     padding:0 14px env(safe-area-inset-bottom);
   }
-  .wrap{max-width:1780px;margin:0 auto}
+  .wrap{max-width:1900px;margin:0 auto}
 
   /* ---------- Header ---------- */
   header{
@@ -115,8 +115,9 @@
   .rnd.r16{flex:1.3;justify-content:space-around;gap:12px}
   /* cuartos: 2 boxes, each centred against the pair of octavos boxes it comes from. */
   .rnd.cf{flex:1.15;justify-content:space-around;gap:12px}
-  /* semis: 1 box per side, centred against the pair of cuartos boxes it comes from. */
-  .rnd.sf{flex:1;justify-content:center;gap:12px}
+  /* semis: 1 box per side, centred against the pair of cuartos boxes it comes
+     from. Keep it at least as wide as cuartos so team names don't truncate. */
+  .rnd.sf{flex:1.15;justify-content:center;gap:12px}
   .rnd.empty{flex:.34}
   .cell{display:flex;flex-direction:column;justify-content:center;min-width:0}
   .ghost{flex:1;display:flex;align-items:center;justify-content:center}
