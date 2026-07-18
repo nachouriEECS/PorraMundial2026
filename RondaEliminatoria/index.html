@@ -439,11 +439,15 @@ function computeBonus(){
   for(const p of PRED.players) BPTS[p]=0;
   const real=(BONUS&&BONUS.results)||{};
   for(const q of (PRED.questions||[])){
-    const actual=String(real[q.id]||"").trim();
-    const info={actual, resolved:!!actual, winners:[], per:0};
+    // A question can have several correct answers (two teams tied on goals
+    // conceded), in which case naming either one wins.
+    const raw=real[q.id];
+    const accepted=(Array.isArray(raw)?raw:[raw]).map(v=>String(v==null?"":v).trim()).filter(Boolean);
+    const actual=accepted.join(" y ");
+    const info={actual, resolved:accepted.length>0, winners:[], per:0};
     if(info.resolved){
       if(q.kind==="number"){
-        const target=qnum(actual);
+        const target=qnum(accepted[0]);
         let best=Infinity;
         for(const [p,v] of Object.entries(q.answers)){
           const n=qnum(v); if(n==null||target==null) continue;
@@ -452,8 +456,8 @@ function computeBonus(){
           else if(d===best) info.winners.push(p);
         }
       }else{
-        const t=qnorm(actual);
-        for(const [p,v] of Object.entries(q.answers)) if(qnorm(v)===t) info.winners.push(p);
+        const t=new Set(accepted.map(qnorm));
+        for(const [p,v] of Object.entries(q.answers)) if(t.has(qnorm(v))) info.winners.push(p);
       }
       if(info.winners.length){
         info.per=q.points/info.winners.length;
