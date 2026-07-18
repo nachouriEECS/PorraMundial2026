@@ -256,6 +256,22 @@
       "pos": 0,
       "team1": "ENG",
       "team2": "ARG"
+    },
+    {
+      "id": "3p-01",
+      "round": "3p",
+      "side": "center",
+      "pos": 1,
+      "team1": "FRA",
+      "team2": "ENG"
+    },
+    {
+      "id": "f-01",
+      "round": "f",
+      "side": "center",
+      "pos": 0,
+      "team1": "ESP",
+      "team2": "ARG"
     }
   ],
   "names": {
@@ -2592,6 +2608,266 @@
         "g2": 3,
         "adv": "ARG"
       }
+    },
+    "3p-01": {
+      "Javi": {
+        "g1": 4,
+        "g2": 2,
+        "adv": "FRA"
+      },
+      "Nacho": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Nacho A": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Lucia": {
+        "g1": 1,
+        "g2": 3,
+        "adv": "ENG"
+      },
+      "Alvaro": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Pablo": {
+        "g1": 2,
+        "g2": 3,
+        "adv": "ENG"
+      },
+      "Juanma": {
+        "g1": 1,
+        "g2": 3,
+        "adv": "ENG"
+      },
+      "Aya": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Curro": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Cris": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Dani": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "FRA"
+      },
+      "Marcelo": {
+        "g1": 1,
+        "g2": 1,
+        "adv": "ENG"
+      },
+      "Bea/Alejandro": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "ENG"
+      },
+      "Samuel": {
+        "g1": 1,
+        "g2": 2,
+        "adv": "ENG"
+      }
+    },
+    "f-01": {
+      "Javi": {
+        "g1": 5,
+        "g2": 1,
+        "adv": "ESP"
+      },
+      "Nacho": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "ESP"
+      },
+      "Nacho A": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "ESP"
+      },
+      "Lucia": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ESP"
+      },
+      "Alvaro": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ESP"
+      },
+      "Pablo": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "ESP"
+      },
+      "Juanma": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ESP"
+      },
+      "Aya": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "ESP"
+      },
+      "Curro": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "ESP"
+      },
+      "Cris": {
+        "g1": 2,
+        "g2": 1,
+        "adv": "ESP"
+      },
+      "Dani": {
+        "g1": 4,
+        "g2": 2,
+        "adv": "ESP"
+      },
+      "Marcelo": {
+        "g1": 3,
+        "g2": 1,
+        "adv": "ESP"
+      },
+      "Bea/Alejandro": {
+        "g1": 2,
+        "g2": 0,
+        "adv": "ESP"
+      },
+      "Samuel": {
+        "g1": 1,
+        "g2": 0,
+        "adv": "ESP"
+      }
     }
-  }
+  },
+  "questions": [
+    {
+      "id": "q-mejor-gol",
+      "label": "Selección con el mejor gol",
+      "points": 12,
+      "kind": "team",
+      "answers": {
+        "Javi": "Turquia",
+        "Nacho": "Francia",
+        "Nacho A": "Inglaterra",
+        "Lucia": "Portugal",
+        "Andrea/Luis": "Argentina",
+        "Alvaro": "Francia",
+        "Pablo": "España",
+        "Juanma": "Colombia",
+        "Aya": "Nueva Zelanda",
+        "Curro": "Francia",
+        "Dani": "Argentina",
+        "Marcelo": "Argentina",
+        "Bea/Alejandro": "España",
+        "Samuel": "Brasil"
+      }
+    },
+    {
+      "id": "q-pichichi",
+      "label": "Selección del pichichi",
+      "points": 12,
+      "kind": "team",
+      "answers": {
+        "Javi": "Inglaterra",
+        "Nacho": "Inglaterra",
+        "Nacho A": "Francia",
+        "Lucia": "Portugal",
+        "Andrea/Luis": "Inglaterra",
+        "Alvaro": "Francia",
+        "Pablo": "Francia",
+        "Juanma": "Alemania",
+        "Aya": "Argentina",
+        "Curro": "Francia",
+        "Cris": "España",
+        "Dani": "Francia",
+        "Marcelo": "España",
+        "Bea/Alejandro": "España",
+        "Samuel": "Portugal"
+      }
+    },
+    {
+      "id": "q-goles-propia",
+      "label": "Goles en propia",
+      "points": 12,
+      "kind": "number",
+      "answers": {
+        "Javi": "9",
+        "Nacho": "7",
+        "Nacho A": "5",
+        "Lucia": "8",
+        "Andrea/Luis": "10",
+        "Alvaro": "6",
+        "Pablo": "5",
+        "Juanma": "5",
+        "Aya": "4",
+        "Curro": "4",
+        "Cris": "10",
+        "Dani": "3",
+        "Marcelo": "11",
+        "Bea/Alejandro": "9",
+        "Samuel": "4"
+      }
+    },
+    {
+      "id": "q-mas-goleada",
+      "label": "Selección más goleada",
+      "points": 10,
+      "kind": "team",
+      "answers": {
+        "Javi": "Cabo Verde",
+        "Nacho": "Haiti",
+        "Nacho A": "Haiti",
+        "Lucia": "Uzbekistan",
+        "Andrea/Luis": "Haiti",
+        "Alvaro": "Panama",
+        "Pablo": "Irak",
+        "Juanma": "Haiti",
+        "Aya": "Argelia",
+        "Curro": "Haiti",
+        "Cris": "Nueva Zelanda",
+        "Dani": "Curazao",
+        "Marcelo": "Curacao",
+        "Bea/Alejandro": "Jordania",
+        "Samuel": "Uzbekistan"
+      }
+    },
+    {
+      "id": "q-saques-banda",
+      "label": "Saques de banda (total)",
+      "points": 10,
+      "kind": "number",
+      "answers": {
+        "Javi": "4192",
+        "Nacho": "4364",
+        "Nacho A": "3126",
+        "Lucia": "3100",
+        "Andrea/Luis": "4290",
+        "Alvaro": "4292",
+        "Pablo": "3117",
+        "Juanma": "3500",
+        "Aya": "3191",
+        "Curro": "3180",
+        "Cris": "4127",
+        "Dani": "2800",
+        "Marcelo": "4680",
+        "Bea/Alejandro": "4488",
+        "Samuel": "3550"
+      }
+    }
+  ]
 }

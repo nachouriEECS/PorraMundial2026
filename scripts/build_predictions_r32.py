@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Build RondaEliminatoria/data/predictions.json from the Excel.
 
-Parses three knockout blocks of `Porra Mundial 2026.xlsx`:
+Parses the knockout blocks of `Porra Mundial 2026.xlsx`:
   * "Ronda Eliminatoria" — the 16 Round-of-32 matches (round "r32").
   * the 8 Round-of-16 matches that follow it (round "r16").
   * the 4 quarter-final matches that follow those (round "cf").
   * the 2 semifinal matches that follow those (round "sf").
+  * the third-place play-off (round "3p") and the final (round "f"), in that
+    row order — both sit in the "center" column rather than a bracket side.
 
 Each player cell is an exact-score prediction like `4-1`, optionally annotated
 with who advances on a draw (`2-2 (ALE)`, `1-1 CAN`, `1-1 pasa Canada`,
@@ -16,6 +18,10 @@ display names + team codes, a round tag and side/pos for layout), and per-player
 The Round-of-16 side/pos are derived from the Round-of-32 matches that feed each
 tie, so the bracket lines the octavos up beside the pair of R32 boxes they come
 from.
+
+The trailing "Preguntas" block holds the five bonus questions (best goal,
+pichichi, own goals, most-conceded team, total throw-ins). Those are emitted as
+`questions` — the real answers live in data/bonus.json, scored in the browser.
 """
 import json
 import re
@@ -50,6 +56,17 @@ VALID_CODES = set(NAME2CODE.values())
 
 # Section headers that mark the end of the knockout prediction blocks.
 STOP_HEADERS = {"puntos", "ganadores", "preguntas"}
+
+# Bonus questions, keyed by the normalized row label in the "Preguntas" block.
+# `kind` drives how the browser scores them: "team" = exact answer, points split
+# between everyone who nailed it; "number" = closest guess wins, split on a tie.
+QUESTIONS = [
+    ("mejorgol", "q-mejor-gol", "Selección con el mejor gol", 12, "team"),
+    ("pichichi", "q-pichichi", "Selección del pichichi", 12, "team"),
+    ("golesenpropia", "q-goles-propia", "Goles en propia", 12, "number"),
+    ("masgoleada", "q-mas-goleada", "Selección más goleada", 10, "team"),
+    ("banda", "q-saques-banda", "Saques de banda (total)", 10, "number"),
+]
 
 
 def norm(s):
@@ -169,6 +186,48 @@ def read_block(ws, start_row, count, players, id_prefix, round_tag,
     return row
 
 
+def read_questions(ws, players):
+    """Read the bonus-question block that follows the bracket.
+
+    The block repeats the player names in its own header row, but spelled
+    inconsistently ("Nacho A" up top vs "Ignacio A" down here), so answers are
+    taken by column position and keyed with the row-1 names instead.
+    """
+    header = find_header_row(ws, "preguntas")
+    if header is None:
+        print("  WARN: no 'Preguntas' block found — skipping bonus questions",
+              file=sys.stderr)
+        return []
+
+    wanted = {key: (qid, label, pts, kind)
+              for key, qid, label, pts, kind in QUESTIONS}
+    found = {}
+    for row in range(header + 1, ws.max_row + 1):
+        label = ws.cell(row, 1).value
+        if label is None or str(label).strip() == "":
+            continue
+        key = norm(label)
+        if key not in wanted:
+            continue
+        answers = {}
+        for i, player in enumerate(players):
+            val = ws.cell(row, 2 + i).value
+            if val is None or str(val).strip() == "":
+                continue
+            answers[player] = str(val).strip()
+        found[key] = answers
+
+    questions = []
+    for key, qid, label, pts, kind in QUESTIONS:
+        if key not in found:
+            print(f"  WARN: bonus question {label!r} not found in the Excel",
+                  file=sys.stderr)
+            continue
+        questions.append({"id": qid, "label": label, "points": pts,
+                          "kind": kind, "answers": found[key]})
+    return questions
+
+
 def main():
     wb = openpyxl.load_workbook(XLSX, data_only=True)
     ws = wb["Sheet1"]
@@ -245,15 +304,30 @@ def main():
             sys.exit(f"SF tie {t1}-{t2} draws from both bracket sides")
         return s1, min(p1, p2) // 2
 
-    read_block(
+    next_row = read_block(
         ws, next_row, 2, players, "sf", "sf",
         matches, predictions, names, side_pos=sf_side_pos,
     )
 
+    # --- Third place, then the final. Both draw from across the bracket, so
+    #     they get the "center" column instead of a side; pos orders them within
+    #     it (final on top, third-place play-off below the trophy card). Excel
+    #     row order is the source of truth for which is which.
+    next_row = read_block(
+        ws, next_row, 1, players, "3p", "3p",
+        matches, predictions, names, side_pos=lambda idx, t1, t2: ("center", 1),
+    )
+    read_block(
+        ws, next_row, 1, players, "f", "f",
+        matches, predictions, names, side_pos=lambda idx, t1, t2: ("center", 0),
+    )
+
+    questions = read_questions(ws, players)
+
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(
         {"players": players, "matches": matches, "names": names,
-         "predictions": predictions},
+         "predictions": predictions, "questions": questions},
         ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     counts = {}
     for m in matches:
