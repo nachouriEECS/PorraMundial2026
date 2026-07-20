@@ -2756,6 +2756,29 @@
   },
   "questions": [
     {
+      "id": "q-ganador",
+      "label": "Ganador del Mundial",
+      "points": 36,
+      "kind": "team",
+      "answers": {
+        "Javi": "Holanda",
+        "Nacho": "España",
+        "Nacho A": "Francia",
+        "Lucia": "España",
+        "Andrea/Luis": "Portugal",
+        "Alvaro": "España",
+        "Pablo": "España",
+        "Juanma": "Brasil",
+        "Aya": "Portugal",
+        "Curro": "Francia",
+        "Cris": "Francia",
+        "Dani": "España",
+        "Marcelo": "España",
+        "Bea/Alejandro": "España",
+        "Samuel": "Portugal"
+      }
+    },
+    {
       "id": "q-mejor-gol",
       "label": "Selección con el mejor gol",
       "points": 12,

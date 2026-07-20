@@ -19,9 +19,10 @@ The Round-of-16 side/pos are derived from the Round-of-32 matches that feed each
 tie, so the bracket lines the octavos up beside the pair of R32 boxes they come
 from.
 
-The trailing "Preguntas" block holds the five bonus questions (best goal,
-pichichi, own goals, most-conceded team, total throw-ins). Those are emitted as
-`questions` — the real answers live in data/bonus.json, scored in the browser.
+The trailing "Ganadores" row (who each player picked to lift the trophy) and the
+"Preguntas" block (best goal, pichichi, own goals, most-conceded team, total
+throw-ins) hold the six bonus questions. Those are emitted as `questions` — the
+real answers live in data/bonus.json, scored in the browser.
 """
 import json
 import re
@@ -56,6 +57,10 @@ VALID_CODES = set(NAME2CODE.values())
 
 # Section headers that mark the end of the knockout prediction blocks.
 STOP_HEADERS = {"puntos", "ganadores", "preguntas"}
+
+# The tournament winner sits on its own "Ganadores" row above the "Preguntas"
+# block, and unlike those it carries the answers on the header row itself.
+WINNER = ("ganadores", "q-ganador", "Ganador del Mundial", 36, "team")
 
 # Bonus questions, keyed by the normalized row label in the "Preguntas" block.
 # `kind` drives how the browser scores them: "team" = exact answer, points split
@@ -186,6 +191,29 @@ def read_block(ws, start_row, count, players, id_prefix, round_tag,
     return row
 
 
+def read_row_answers(ws, row, players):
+    """Read one player-per-column answer row, keyed by the row-1 player names."""
+    answers = {}
+    for i, player in enumerate(players):
+        val = ws.cell(row, 2 + i).value
+        if val is None or str(val).strip() == "":
+            continue
+        answers[player] = str(val).strip()
+    return answers
+
+
+def read_winner(ws, players):
+    """Read the "Ganadores" row — each player's pick to win the tournament."""
+    key, qid, label, pts, kind = WINNER
+    row = find_header_row(ws, key)
+    if row is None:
+        print("  WARN: no 'Ganadores' row found — skipping the winner question",
+              file=sys.stderr)
+        return []
+    return [{"id": qid, "label": label, "points": pts, "kind": kind,
+             "answers": read_row_answers(ws, row, players)}]
+
+
 def read_questions(ws, players):
     """Read the bonus-question block that follows the bracket.
 
@@ -209,13 +237,7 @@ def read_questions(ws, players):
         key = norm(label)
         if key not in wanted:
             continue
-        answers = {}
-        for i, player in enumerate(players):
-            val = ws.cell(row, 2 + i).value
-            if val is None or str(val).strip() == "":
-                continue
-            answers[player] = str(val).strip()
-        found[key] = answers
+        found[key] = read_row_answers(ws, row, players)
 
     questions = []
     for key, qid, label, pts, kind in QUESTIONS:
@@ -322,7 +344,8 @@ def main():
         matches, predictions, names, side_pos=lambda idx, t1, t2: ("center", 0),
     )
 
-    questions = read_questions(ws, players)
+    # Winner first — it is the biggest pot, so it leads the bonus board.
+    questions = read_winner(ws, players) + read_questions(ws, players)
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(

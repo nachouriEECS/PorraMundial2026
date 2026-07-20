@@ -1,10 +1,11 @@
 {
-  "_comment": "Real answers to the five bonus questions. Edit by hand as each one resolves — a question with no entry here (or an empty string) shows as pending and awards nothing. Team answers are matched case/accent-insensitively against what people wrote in the Excel; use an array when several teams tie for the answer and naming any one of them counts. Number answers award the closest guess. Points are split evenly between everyone who ties for the win.",
+  "_comment": "Real answers to the six bonus questions. Edit by hand as each one resolves — a question with no entry here (or an empty string) shows as pending and awards nothing. Team answers are matched case/accent-insensitively against what people wrote in the Excel; use an array when several teams tie for the answer and naming any one of them counts. Number answers award the closest guess. Points are split evenly between everyone who ties for the win.",
   "results": {
+    "q-ganador": "España",
     "q-mejor-gol": "",
-    "q-pichichi": "",
+    "q-pichichi": "Francia",
     "q-goles-propia": "14",
     "q-mas-goleada": ["Irak", "Túnez"],
-    "q-saques-banda": ""
+    "q-saques-banda": "3835"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "_comment": "Manual safety net for the Round of 32. Map a match id (r32-01 .. r32-16) to an exact result. g1/g2 are the full-time goals (after extra time, before penalties); adv is the 3-letter code of the team that ADVANCES (penalty winner on a draw). Overrides always win over the API. Remove an entry to hand control back to the API.",
+  "_comment": "Manual safety net for any knockout match. Map a match id (r32-01 .. r32-16, r16-01 .., cf-01 .., sf-01 .., 3p-01, f-01) to an exact result. g1/g2 are the full-time goals (after extra time, before penalties) in the match's own team1-team2 order; adv is the 3-letter code of the team that ADVANCES (penalty winner on a draw). Overrides always win over the API. Remove an entry to hand control back to the API.",
   "_example": { "r32-01": { "g1": 2, "g2": 1, "adv": "GER" } },
   "results": {}
 }
